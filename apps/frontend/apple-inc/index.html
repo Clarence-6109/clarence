@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Apple Inc.</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Sans:wght@300;400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <section class="first">
+      <nav class="nav-bar-first" aria-label="Primary">
+        <div class="nav-left-first">
+          <a href="#" class="site-brand" aria-label="Apple home">
+            <i class="fa-brands fa-apple"></i>
+            <span>Apple | Think different</span>
+          </a>
+        </div>
+
+        <ul class="nav-mid-first" role="menubar" aria-label="Main navigation">
+          <li role="none"><a role="menuitem" href="#home">Home</a></li>
+          <li role="none"><a role="menuitem" href="#services">Services</a></li>
+          <li role="none"><a role="menuitem" href="#features">Features</a></li>
+          <li role="none"><a role="menuitem" href="#contact">Contact</a></li>
+          <li role="none"><a role="menuitem" href="#about">About</a></li>
+        </ul>
+
+        <ul class="nav-right-first" aria-hidden="false">
+          <li>
+            <a href="profile.html" aria-label="Profile">
+              <i class="fa-solid fa-circle-user"></i>
+            </a>
+          </li>
+
+          <li>
+            <i class="fas fa-sun" role="button" tabindex="0" title="Toggle theme" data-theme-toggle aria-label="Toggle theme"></i>
+          </li>
+
+          <li>
+            <button class="mobile-menu-button" aria-label="Open menu" type="button">
+              <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </section>
+  </header>
+
+  <main id="main">
+    <section id="home" class="main" aria-labelledby="hero-title">
+      <div class="container">
+        <h3>A Symbol Of Status</h3>
+        <h1 id="hero-title">Defining Premium Technology</h1>
+      </div>
+    </section>
+
+    <section id="metrics" class="metric" aria-labelledby="metric-heading">
+      <div class="container">
+        <h2 id="metric-heading">Company Metrics</h2>
+        <div class="metric-grid">
+          <div class="metric-item">
+            <span class="metric-label">Total Active Devices Worldwide</span>
+            <span class="metric-value">Over 2.35 Billion</span>
+          </div>
+
+          <div class="metric-item">
+            <span class="metric-label">Total Paid Subscriptions</span>
+            <span class="metric-value">Over 1.1 Billion</span>
+          </div>
+
+          <div class="metric-item">
+            <span class="metric-label">Company Market Value</span>
+            <span class="metric-value">Approx. $4.11 Trillion USD</span>
+          </div>
+
+          <div class="metric-item">
+            <span class="metric-label">Annual Company Revenue (FY 2025)</span>
+            <span class="metric-value">$416.16 Billion USD</span>
+          </div>
+
+          <div class="metric-item">
+            <span class="metric-label">Years of Service</span>
+            <span class="metric-value">Over 49 Years (Since 1976)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features / Product Carousel (replaced apple-* with features-*) -->
+    <section id="features" class="features" aria-labelledby="features-heading">
+      <div class="container">
+        <h2 id="features-heading">What Makes Apple Exceptional</h2>
+
+        <div class="features-carousel-wrapper">
+          <div class="features-carousel" aria-roledescription="carousel" data-carousel>
+
+            <div class="features-track">
+              <div class="features-slide is-active" data-index="0" tabindex="-1" aria-hidden="false">
+                <div class="features-slide-inner">
+                  <div class="feature-icon">🌐</div>
+                  <h3 class="features-title">Integrated Ecosystem</h3>
+                  <p class="features-desc">Seamless, intuitive connectivity between devices for a fluid user experience.</p>
+                </div>
+              </div>
+
+              <div class="features-slide" data-index="1" tabindex="-1" aria-hidden="true">
+                <div class="features-slide-inner">
+                  <div class="feature-icon">💎</div>
+                  <h3 class="features-title">Iconic, Sleek Design</h3>
+                  <p class="features-desc">Meticulous attention to aesthetics, material integrity, and minimalist elegance.</p>
+                </div>
+              </div>
+
+              <div class="features-slide" data-index="2" tabindex="-1" aria-hidden="true">
+                <div class="features-slide-inner">
+                  <div class="feature-icon">🖱️</div>
+                  <h3 class="features-title">Intuitive UX/UI</h3>
+                  <p class="features-desc">Simplified interfaces that prioritize ease of use and immediate accessibility.</p>
+                </div>
+              </div>
+
+              <div class="features-slide" data-index="3" tabindex="-1" aria-hidden="true">
+                <div class="features-slide-inner">
+                  <div class="feature-icon">🔒</div>
+                  <h3 class="features-title">Robust Security</h3>
+                  <p class="features-desc">Industry-leading privacy architecture and data protection protocols built-in by design.</p>
+                </div>
+              </div>
+            </div>
+
+            <button class="features-control prev" type="button" aria-label="Previous slide">&lsaquo;</button>
+            <button class="features-control next" type="button" aria-label="Next slide">&rsaquo;</button>
+
+            <div class="features-indicators" role="tablist" aria-label="Carousel indicators">
+              <button class="features-indicator is-active" data-slide-to="0" aria-label="Slide 1" role="tab" aria-selected="true"></button>
+              <button class="features-indicator" data-slide-to="1" aria-label="Slide 2" role="tab" aria-selected="false"></button>
+              <button class="features-indicator" data-slide-to="2" aria-label="Slide 3" role="tab" aria-selected="false"></button>
+              <button class="features-indicator" data-slide-to="3" aria-label="Slide 4" role="tab" aria-selected="false"></button>
+            </div>
+          </div>
+
+          <a href="#store" class="features-cta">Explore Our Products</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="store" class="store" aria-labelledby="store-heading">
+      <div class="container">
+        <h2 id="store-heading">Store</h2>
+      </div>
+    </section>
+
+    <section id="contact" class="contacts" aria-labelledby="contact-heading">
+      <div class="container">
+        <h2 id="contact-heading">Let hear your thought</h2>
+        <p>Reach out to our customer support line if you need help</p>
+
+        <form class="contact-form" aria-label="Contact form">
+          <div class="form-group">
+            <input type="text" placeholder="Input Name" required aria-label="Name">
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Input Email" required aria-label="Email">
+          </div>
+          <div class="form-group">
+            <textarea placeholder="Talk to us" rows="5" required aria-label="Message"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="about" class="about" aria-labelledby="about-heading">
+      <div class="container">
+        <h2 id="about-heading">About Apple Inc.</h2>
+        <p>
+          Apple Inc. is a global technology leader renowned for its innovative products and services that have transformed the way people live, work, and communicate.
+          Founded in 1976 by Steve Jobs, Steve Wozniak, and Ronald Wayne, Apple has consistently pushed the boundaries of design and functionality, creating iconic devices such as the iPhone, iPad, Mac computers, Apple Watch, and AirPods.
+          The company's commitment to excellence extends beyond hardware to include software ecosystems like iOS, macOS, watchOS, and services such as the App Store, iCloud, Apple Music, and Apple TV+.
+          With a focus on user experience, privacy, and sustainability, Apple continues to shape the future of technology while maintaining a strong emphasis on environmental responsibility and social impact.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <section class="last">
+      <nav class="nav-bar-last" aria-label="Footer">
+        <div class="nav-left-last">
+          <p>&copy; 2025 Apple Incorporated | Silicon Valley | Northern California | USA. All rights reserved.</p>
+        </div>
+
+        <div class="nav-right-last">
+          <p>Apple <i class="fas fa-heart" aria-hidden="true"></i> You</p>
+        </div>
+
+        <ul class="nav-mid-last" aria-label="Social links">
+          <li><a href="#" title="Facebook"><ion-icon name="logo-facebook"></ion-icon></a></li>
+          <li><a href="#" title="Instagram"><ion-icon name="logo-instagram"></ion-icon></a></li>
+          <li><a href="#" title="Twitter"><ion-icon name="logo-twitter"></ion-icon></a></li>
+          <li><a href="#" title="YouTube"><ion-icon name="logo-youtube"></ion-icon></a></li>
+          <li><a href="#" title="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+          <li><a href="mailto:applesupport@icloud.com" title="Email"><ion-icon name="mail-outline"></ion-icon></a></li>
+          <li><a href="tel:1-800-692-7753" title="Call"><ion-icon name="call-outline"></ion-icon></a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

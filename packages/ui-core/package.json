@@ -1,0 +1,1 @@
+{"name":"@clarence/ui-core","version":"1.0.0","private":true,"type":"module","dependencies":{"@clarence/ui-core":"file:../../../packages/ui-core"},"devDependencies":{"framer-motion":"^12.23.26","lucide-react":"^0.561.0","vite":"^7.3.0"}}
