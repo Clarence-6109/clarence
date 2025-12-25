@@ -1,5 +1,3 @@
-import "./index.css";
-
 function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
