@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Safari | 2025 Modern</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- FIXED: Correct FontAwesome CDN link for icons to show up -->
+    <link rel="stylesheet" href="cdnjs.cloudflare.com" />
+  </head>
+  <body>
+    <div class="bg-blur"></div>
+
+    <header class="safari-nav">
+      <div class="toolbar-main">
+        <div class="nav-controls">
+          <button title="Previous" class="icon-btn">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button title="Next" class="icon-btn">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="search-wrapper">
+          <button class="zoom-btn" title="Zoom" id="zoomBtn">
+            <i class="fa-solid fa-magnifying-glass-plus"></i> 100%
+          </button>
+          <input
+            type="text"
+            id="omnibox"
+            placeholder="Search or enter website"
+          />
+          <i class="fa-solid fa-rotate-right refresh-icon"></i>
+        </div>
+
+        <div class="action-controls">
+          <button title="New Tab" class="icon-btn highlight" id="addTab">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+          <button title="Present" class="icon-btn">
+            <i class="fa-solid fa-display"></i>
+          </button>
+          <button title="Bookmarks" class="icon-btn">
+            <i class="fa-solid fa-book-bookmark"></i>
+          </button>
+          <button title="Profile" class="icon-btn profile-trigger">
+            <i class="fa-solid fa-circle-user"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="tabs-container" id="tabList">
+        <div class="tab active" role="tab">
+          <i class="fa-solid fa-compass tab-icon"></i>
+          <span class="tab-title">New Tab</span>
+          <button class="close-tab"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <h1 class="safari-logo">Safari</h1>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>Favorites</h2>
+          <button class="edit-btn">Edit</button>
+        </div>
+        <div class="fav-grid">
+          <a href="https://github.com" class="fav-card">
+            <div class="fav-icon"><i class="fa-brands fa-github"></i></div>
+            <span>GitHub</span>
+          </a>
+          <a href="https://figma.com" class="fav-card">
+            <div class="fav-icon"><i class="fa-brands fa-figma"></i></div>
+            <span>Figma</span>
+          </a>
+          <button class="add-fav-card"><i class="fa-solid fa-plus"></i></button>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>News Feed</h2>
+        <div class="news-grid">
+          <article class="news-card">
+            <div class="news-img apple-bg"></div>
+            <div class="news-content">
+              <h3>Apple Intelligence 2.0</h3>
+              <p>
+                Experience the next generation of personal AI integration...
+              </p>
+              <span class="news-tag">Tech • 2m ago</span>
+            </div>
+          </article>
+          <article class="news-card">
+            <div class="news-img mac-bg"></div>
+            <div class="news-content">
+              <h3>MacBook Pro M4 Pro</h3>
+              <p>
+                The fastest pro laptop just got a significant boost in battery
+                life...
+              </p>
+              <span class="news-tag">Hardware • 1h ago</span>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

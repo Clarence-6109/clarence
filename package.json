@@ -1,16 +1,8 @@
 {
   "name": "clarence-monorepo",
-  "version": "1.0.0",
   "private": true,
-  "type": "module",
   "workspaces": [
-    "apps/frontend/*",
-    "apps/backend",
+    "apps/*",
     "packages/*"
-  ],
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  }
+  ]
 }

@@ -1,0 +1,21 @@
+{
+  "name": "@clarence/database",
+  "version": "1.0.0",
+  "main": "./src/index.ts",
+  "types": "./generated/client/index.d.ts",
+  "scripts": {
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:studio": "prisma studio"
+  },
+  "dependencies": {
+    "@prisma/client": "^7.2.0",
+    "dotenv": "^17.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "prisma": "^7.2.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.0.0"
+  }
+}

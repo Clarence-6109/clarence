@@ -1,0 +1,11 @@
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  env: {
+    DATABASE_URL: process.env.DATABASE_URL,
+  },
+  // This helps Turbopack find your local package
+  transpilePackages: ["@clarence/database"],
+};
+
+export default nextConfig;
