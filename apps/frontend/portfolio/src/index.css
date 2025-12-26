@@ -307,7 +307,7 @@ section {
     rgba(0, 188, 212, 0.15),
     rgba(124, 77, 255, 0.15)
   );
-  padding: 10px;
+  padding: 5px;
   display: block;
   animation: float 3s ease-in-out infinite;
 }
