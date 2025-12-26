@@ -321,6 +321,12 @@ section {
   display: block !important;
   color: #7c4dff; /* Purple */
 }
+.sun-icon,
+.moon-icon {
+  width: 20px !important;
+  height: 20px !important;
+  display: inline-block;
+}
 
 /* Styles when Light Mode is active */
 /* Optimized: One rule for all light-mode sections */
