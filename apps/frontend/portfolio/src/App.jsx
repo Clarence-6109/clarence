@@ -1,3 +1,4 @@
+import clarenceLogo from "./assets/clarence_logo.avif";
 import "./index.css";
 
 /**
@@ -31,11 +32,7 @@ function App() {
       <header className="main-header">
         <nav className="navbar">
           <div className="nav-brand">
-            <img
-              src="/clarencesymbol.png"
-              alt="Clarence Symbol"
-              className="nav-logo"
-            />
+            <img src={clarenceLogo} alt="Clarence Logo" className="nav-logo" />
             <span className="nav-title">CLARENCE</span>
           </div>
           <ul className="nav-menu">
