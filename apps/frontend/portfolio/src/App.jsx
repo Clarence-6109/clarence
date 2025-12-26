@@ -1,4 +1,3 @@
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import {
   faAws,
   faDocker,
@@ -111,7 +110,6 @@ export default function App() {
               </a>
             </li>
           </ul>
-
           {/* THEME TOGGLE SWITCH */}
           <button className="theme-toggle-btn" aria-label="Toggle Theme">
             <FontAwesomeIcon icon={faSun} className="sun-icon" />
