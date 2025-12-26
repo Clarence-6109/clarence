@@ -75,8 +75,8 @@ function App() {
         <div className="container1">
           <div className="hero-content">
             <img
-              src="/clarencesymbol.png"
-              alt="Clarence Symbol"
+              src={clarenceLogo}
+              alt="Clarence logo"
               className="hero-symbol"
             />
             <h1 className="headline">CLARENCE</h1>
@@ -100,12 +100,12 @@ function App() {
         </div>
       </section>
       {/*-- ============ ABOUT SECTION ============ */}
-      <section id="about" class="about-section">
-        <div class="container1">
-          <h2 class="section-title">About Me</h2>
-          <div class="about-grid">
-            <div class="about-card">
-              <div class="about-icon">
+      <section id="about" className="about-section">
+        <div className="container1">
+          <h2 className="section-title">About Me</h2>
+          <div className="about-grid">
+            <div className="about-card">
+              <div className="about-icon">
                 <i class="fas fa-code"></i>
               </div>
               <h3>Full-Stack Developer</h3>
@@ -116,9 +116,9 @@ function App() {
               </p>
             </div>
 
-            <div class="about-card">
-              <div class="about-icon">
-                <i class="fas fa-lightbulb"></i>
+            <div className="about-card">
+              <div className="about-icon">
+                <i className="fas fa-lightbulb"></i>
               </div>
               <h3>Problem Solver</h3>
               <p>
@@ -128,9 +128,9 @@ function App() {
               </p>
             </div>
 
-            <div class="about-card">
-              <div class="about-icon">
-                <i class="fas fa-rocket"></i>
+            <div className="about-card">
+              <div className="about-icon">
+                <i className="fas fa-rocket"></i>
               </div>
               <h3>Innovation Advocate</h3>
               <p>
@@ -140,9 +140,9 @@ function App() {
               </p>
             </div>
 
-            <div class="about-card">
-              <div class="about-icon">
-                <i class="fas fa-handshake"></i>
+            <div className="about-card">
+              <div className="about-icon">
+                <i className="fas fa-handshake"></i>
               </div>
               <h3>Collaborative Partner</h3>
               <p>
@@ -155,125 +155,129 @@ function App() {
       </section>
 
       {/* ============ PORTFOLIO SECTION ============ */}
-      <section id="portfolio" class="portfolio-section">
-        <div class="container1">
-          <h2 class="section-title">Featured Projects</h2>
-          <div class="portfolio-grid">
-            <div class="portfolio-card">
-              <div class="portfolio-image">
+      <section id="portfolio" className="portfolio-section">
+        <div className="container1">
+          <h2 className="section-title">Featured Projects</h2>
+          <div className="portfolio-grid">
+            <div className="portfolio-card">
+              <div className="portfolio-image">
                 <img
                   src="https://via.placeholder.com/400x300?text=Project+1"
                   alt="Chy-Wears"
                 />
-                <div class="portfolio-overlay">
-                  <a href="dashboard.html" class="portfolio-btn">
+                <div className="portfolio-overlay">
+                  <a href="dashboard.html" className="portfolio-btn">
                     View Project
                   </a>
                 </div>
               </div>
               <h3>Chy-Wears E-Commerce</h3>
-              <p class="portfolio-category">Web Development and E-Commerce</p>
-              <p class="portfolio-description">
+              <p className="portfolio-category">
+                Web Development and E-Commerce
+              </p>
+              <p className="portfolio-description">
                 A modern e-commerce platform for fashion retail with inventory
                 management, payment integration, and user analytics.
               </p>
             </div>
 
-            <div class="portfolio-card">
-              <div class="portfolio-image">
+            <div className="portfolio-card">
+              <div className="portfolio-image">
                 <img
                   src="https://via.placeholder.com/400x300?text=Project+2"
                   alt="Unit Converter"
                 />
-                <div class="portfolio-overlay">
-                  <a href="dashboard.html" class="portfolio-btn">
+                <div className="portfolio-overlay">
+                  <a href="dashboard.html" className="portfolio-btn">
                     View Project
                   </a>
                 </div>
               </div>
               <h3>Unit Converter App</h3>
-              <p class="portfolio-category">Mobile App and Utility</p>
-              <p class="portfolio-description">
+              <p className="portfolio-category">Mobile App and Utility</p>
+              <p className="portfolio-description">
                 Cross-platform mobile app for unit conversions. Fast,
                 offline-capable, with beautiful UI and real-time calculations.
               </p>
             </div>
 
-            <div class="portfolio-card">
-              <div class="portfolio-image">
+            <div className="portfolio-card">
+              <div className="portfolio-image">
                 <img
                   src="https://via.placeholder.com/400x300?text=Project+3"
                   alt="Calculator"
                 />
-                <div class="portfolio-overlay">
-                  <a href="dashboard.html" class="portfolio-btn">
+                <div className="portfolio-overlay">
+                  <a href="dashboard.html" className="portfolio-btn">
                     View Project
                   </a>
                 </div>
               </div>
               <h3>Advanced Calculator</h3>
-              <p class="portfolio-category">Web App and Productivity</p>
-              <p class="portfolio-description">
+              <p className="portfolio-category">Web App and Productivity</p>
+              <p className="portfolio-description">
                 Scientific calculator with graphing capabilities, equation
                 solver, and customizable themes for power users.
               </p>
             </div>
 
-            <div class="portfolio-card">
-              <div class="portfolio-image">
+            <div className="portfolio-card">
+              <div className="portfolio-image">
                 <img
                   src="https://via.placeholder.com/400x300?text=Project+4"
                   alt="Fizzlin"
                 />
-                <div class="portfolio-overlay">
-                  <a href="dashboard.html" class="portfolio-btn">
+                <div className="portfolio-overlay">
+                  <a href="dashboard.html" className="portfolio-btn">
                     View Project
                   </a>
                 </div>
               </div>
               <h3>Fizzlin Beverage Brand</h3>
-              <p class="portfolio-category">Web Design and Branding</p>
-              <p class="portfolio-description">
+              <p className="portfolio-category">Web Design and Branding</p>
+              <p className="portfolio-description">
                 Brand website with interactive product showcase, e-commerce
                 integration, and engaging multimedia content.
               </p>
             </div>
 
-            <div class="portfolio-card">
-              <div class="portfolio-image">
+            <div className="portfolio-card">
+              <div className="portfolio-image">
                 <img
                   src="https://via.placeholder.com/400x300?text=Project+5"
                   alt="Dashboard"
                 />
-                <div class="portfolio-overlay">
-                  <a href="dashboard.html" class="portfolio-btn">
+                <div className="portfolio-overlay">
+                  <a href="dashboard.html" className="portfolio-btn">
                     View Project
                   </a>
                 </div>
               </div>
               <h3>Analytics Dashboard</h3>
-              <p class="portfolio-category">Web App and Data Visualization</p>
-              <p class="portfolio-description">
+              <p className="portfolio-category">
+                Web App and Data Visualization
+              </p>
+              <p className="portfolio-description">
                 Real-time data visualization dashboard with interactive charts,
                 custom reporting, and predictive analytics.
               </p>
             </div>
 
-            <div class="portfolio-card">
-              <div class="portfolio-image">
+            <div className="portfolio-card">
+              <div className="portfolio-image">
                 <img
                   src="https://via.placeholder.com/400x300?text=Project+6"
                   alt="Portfolio"
                 />
-                <div class="portfolio-overlay">
-                  <a href="dashboard.html" class="portfolio-btn">
+                <div className="portfolio-overlay">
+                  <a href="dashboard.html" className="portfolio-btn">
                     View Project
                   </a>
                 </div>
               </div>
               <h3>Personal Portfolio</h3>
-              <p class="portfolio-category">Web Design â€¢ Portfolio</p>
-              <p class="portfolio-description">
+              <p className="portfolio-category">Web Design â€¢ Portfolio</p>
+              <p className="portfolio-description">
                 Modern portfolio website showcasing projects, skills, and
                 services with smooth animations and responsive design.
               </p>
@@ -283,110 +287,110 @@ function App() {
       </section>
 
       {/* ============ SKILLS SECTION ============ */}
-      <section id="skills" class="skills-section">
-        <div class="container1">
-          <h2 class="section-title">Technical Skills</h2>
-          <div class="skills-container">
-            <div class="skill-category">
+      <section id="skills" className="skills-section">
+        <div className="container1">
+          <h2 className="section-title">Technical Skills</h2>
+          <div className="skills-container">
+            <div className="skill-category">
               <h3>
-                <i class="fas fa-paint-brush"></i> Frontend
+                <i className="fas fa-paint-brush"></i> Frontend
               </h3>
-              <div class="skill-tags">
-                <span class="skill-tag">
-                  <i class="fab fa-react"></i> React
+              <div className="skill-tags">
+                <span className="skill-tag">
+                  <i className="fab fa-react"></i> React
                 </span>
-                <span class="skill-tag">
-                  <i class="fab fa-vuejs"></i> Vue.js
+                <span className="skill-tag">
+                  <i className="fab fa-vuejs"></i> Vue.js
                 </span>
-                <span class="skill-tag">
-                  <i class="fas fa-code"></i> TypeScript
+                <span className="skill-tag">
+                  <i className="fas fa-code"></i> TypeScript
                 </span>
-                <span class="skill-tag">
-                  <i class="fas fa-palette"></i> Tailwind CSS
+                <span className="skill-tag">
+                  <i className="fas fa-palette"></i> Tailwind CSS
                 </span>
-                <span class="skill-tag">
-                  <i class="fab fa-html5"></i> HTML/CSS
+                <span className="skill-tag">
+                  <i className="fab fa-html5"></i> HTML/CSS
                 </span>
-                <span class="skill-tag">
-                  <i class="fab fa-js-square"></i> JavaScript
+                <span className="skill-tag">
+                  <i className="fab fa-js-square"></i> JavaScript
                 </span>
               </div>
             </div>
 
-            <div class="skill-category">
+            <div className="skill-category">
               <h3>
-                <i class="fas fa-server"></i> Backend
+                <i className="fas fa-server"></i> Backend
               </h3>
-              <div class="skill-tags">
-                <span class="skill-tag">
-                  <i class="fab fa-node-js"></i> Node.js
+              <div className="skill-tags">
+                <span className="skill-tag">
+                  <i className="fab fa-node-js"></i> Node.js
                 </span>
-                <span class="skill-tag">
-                  <i class="fab fa-python"></i> Python
+                <span className="skill-tag">
+                  <i className="fab fa-python"></i> Python
                 </span>
-                <span class="skill-tag">
-                  <i class="fas fa-cube"></i> Express.js
+                <span className="skill-tag">
+                  <i className="fas fa-cube"></i> Express.js
                 </span>
-                <span class="skill-tag">
-                  <i class="fas fa-database"></i> PostgreSQL
+                <span className="skill-tag">
+                  <i className="fas fa-database"></i> PostgreSQL
                 </span>
-                <span class="skill-tag">
-                  <i class="fas fa-leaf"></i> MongoDB
+                <span className="skill-tag">
+                  <i className="fas fa-leaf"></i> MongoDB
                 </span>
-                <span class="skill-tag">
-                  <i class="fas fa-plug"></i> REST API
+                <span className="skill-tag">
+                  <i className="fas fa-plug"></i> REST API
                 </span>
               </div>
             </div>
 
-            <div class="skill-category">
+            <div className="skill-category">
               <h3>
-                <i class="fas fa-tools"></i> Tools & DevOps
+                <i className="fas fa-tools"></i> Tools & DevOps
               </h3>
-              <div class="skill-tags">
-                <span class="skill-tag">
-                  <i class="fab fa-git-alt"></i> Git
+              <div className="skill-tags">
+                <span className="skill-tag">
+                  <i className="fab fa-git-alt"></i> Git
                 </span>
-                <span class="skill-tag">
-                  <i class="fab fa-docker"></i> Docker
+                <span className="skill-tag">
+                  <i className="fab fa-docker"></i> Docker
                 </span>
-                <span class="skill-tag">
-                  <i class="fab fa-aws"></i> AWS
+                <span className="skill-tag">
+                  <i className="fab fa-aws"></i> AWS
                 </span>
-                <span class="skill-tag">
-                  <i class="fas fa-infinity"></i> CI/CD
+                <span className="skill-tag">
+                  <i className="fas fa-infinity"></i> CI/CD
                 </span>
-                <span class="skill-tag">
-                  <i class="fab fa-linux"></i> Linux
+                <span className="skill-tag">
+                  <i className="fab fa-linux"></i> Linux
                 </span>
-                <span class="skill-tag">
-                  <i class="fas fa-cube"></i> Webpack
+                <span className="skill-tag">
+                  <i className="fas fa-cube"></i> Webpack
                 </span>
               </div>
             </div>
 
-            <div class="skill-category">
+            <div className="skill-category">
               <h3>
-                <i class="fas fa-pen-fancy"></i> Design & UX
+                <i className="fas fa-pen-fancy"></i> Design & UX
               </h3>
-              <div class="skill-tags">
-                <span class="skill-tag">
-                  <i class="fas fa-pen-nib"></i> Figma
+              <div className="skill-tags">
+                <span className="skill-tag">
+                  <i className="fas fa-pen-nib"></i> Figma
                 </span>
-                <span class="skill-tag">
-                  <i class="fas fa-laptop"></i> UI Design
+                <span className="skill-tag">
+                  <i className="fas fa-laptop"></i> UI Design
                 </span>
-                <span class="skill-tag">
-                  <i class="fas fa-edit"></i> Wireframing
+                <span className="skill-tag">
+                  <i className="fas fa-edit"></i> Wireframing
                 </span>
-                <span class="skill-tag">
-                  <i class="fas fa-bezier-curve"></i> Prototyping
+                <span className="skill-tag">
+                  <i className="fas fa-bezier-curve"></i> Prototyping
                 </span>
-                <span class="skill-tag">
-                  <i class="fas fa-users"></i> User Research
+                <span className="skill-tag">
+                  <i className="fas fa-users"></i> User Research
                 </span>
-                <span class="skill-tag">
-                  <i class="fas fa-universal-access"></i> Accessibility
+                <span className="skill-tag">
+                  <i className="fas fa-universal-access"></i> Accessibility
                 </span>
               </div>
             </div>
@@ -395,106 +399,106 @@ function App() {
       </section>
 
       {/* ============ STATS SECTION ============ */}
-      <section class="stats-section">
-        <div class="container1">
-          <div class="stats-grid">
-            <div class="stat-item">
-              <div class="stat-number">50+</div>
-              <div class="stat-label">Projects Completed</div>
+      <section className="stats-section">
+        <div className="container1">
+          <div className="stats-grid">
+            <div className="stat-item">
+              <div className="stat-number">50+</div>
+              <div className="stat-label">Projects Completed</div>
             </div>
-            <div class="stat-item">
-              <div class="stat-number">30+</div>
-              <div class="stat-label">Happy Clients</div>
+            <div className="stat-item">
+              <div className="stat-number">30+</div>
+              <div className="stat-label">Happy Clients</div>
             </div>
-            <div class="stat-item">
-              <div class="stat-number">5+</div>
-              <div class="stat-label">Years Experience</div>
+            <div className="stat-item">
+              <div className="stat-number">5+</div>
+              <div className="stat-label">Years Experience</div>
             </div>
-            <div class="stat-item">
-              <div class="stat-number">100%</div>
-              <div class="stat-label">Dedication</div>
+            <div className="stat-item">
+              <div className="stat-number">100%</div>
+              <div className="stat-label">Dedication</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* ============ SERVICES SECTION ============ */}
-      <section id="services" class="services-section">
-        <div class="container1">
-          <h2 class="section-title">Services</h2>
-          <div class="services-grid">
-            <div class="service-item">
-              <div class="service-number">01</div>
+      <section id="services" className="services-section">
+        <div className="container1">
+          <h2 className="section-title">Services</h2>
+          <div className="services-grid">
+            <div className="service-item">
+              <div className="service-number">01</div>
               <h3>Web Development</h3>
               <p>
                 Full-stack web applications with modern frameworks, responsive
                 design, and optimized performance. From frontend to backend, I
                 deliver complete solutions.
               </p>
-              <a href="#" class="service-link">
-                Learn More <i class="fas fa-arrow-right"></i>
+              <a href="#" className="service-link">
+                Learn More <i className="fas fa-arrow-right"></i>
               </a>
             </div>
 
-            <div class="service-item">
-              <div class="service-number">02</div>
+            <div className="service-item">
+              <div className="service-number">02</div>
               <h3>Mobile Development</h3>
               <p>
                 Cross-platform mobile applications using React Native, Flutter,
                 and native technologies. High-performance apps for iOS and
                 Android.
               </p>
-              <a href="#" class="service-link">
-                Learn More <i class="fas fa-arrow-right"></i>
+              <a href="#" className="service-link">
+                Learn More <i className="fas fa-arrow-right"></i>
               </a>
             </div>
 
-            <div class="service-item">
-              <div class="service-number">03</div>
+            <div className="service-item">
+              <div className="service-number">03</div>
               <h3>Cloud & DevOps</h3>
               <p>
                 Infrastructure setup, deployment automation, and cloud
                 architecture. Leveraging AWS, Azure, and GCP for scalable
                 solutions.
               </p>
-              <a href="#" class="service-link">
-                Learn More <i class="fas fa-arrow-right"></i>
+              <a href="#" className="service-link">
+                Learn More <i className="fas fa-arrow-right"></i>
               </a>
             </div>
 
-            <div class="service-item">
-              <div class="service-number">04</div>
+            <div className="service-item">
+              <div className="service-number">04</div>
               <h3>UI/UX Design</h3>
               <p>
                 Beautiful, user-centric interface designs. Prototyping,
                 wireframing, and design systems that enhance user experience.
               </p>
-              <a href="#" class="service-link">
-                Learn More <i class="fas fa-arrow-right"></i>
+              <a href="#" className="service-link">
+                Learn More <i className="fas fa-arrow-right"></i>
               </a>
             </div>
 
-            <div class="service-item">
-              <div class="service-number">05</div>
+            <div className="service-item">
+              <div className="service-number">05</div>
               <h3>Consulting</h3>
               <p>
                 Technical strategy and architecture consulting. Help businesses
                 optimize their tech stack and digital transformation journey.
               </p>
-              <a href="#" class="service-link">
-                Learn More <i class="fas fa-arrow-right"></i>
+              <a href="#" className="service-link">
+                Learn More <i className="fas fa-arrow-right"></i>
               </a>
             </div>
 
-            <div class="service-item">
-              <div class="service-number">06</div>
+            <div className="service-item">
+              <div className="service-number">06</div>
               <h3>Training & Mentorship</h3>
               <p>
                 Share knowledge through workshops, training sessions, and
                 mentorship programs. Help teams level up their technical skills.
               </p>
-              <a href="#" class="service-link">
-                Learn More <i class="fas fa-arrow-right"></i>
+              <a href="#" className="service-link">
+                Learn More <i className="fas fa-arrow-right"></i>
               </a>
             </div>
           </div>
