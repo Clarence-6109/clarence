@@ -303,16 +303,23 @@ section {
 }
 
 /* Icon Visibility Logic */
+
+/* Default: Dark mode is active, so we show the SUN to switch to light */
 .sun-icon {
-  display: block;
-  color: #ffca28; /* Warm yellow */
-  font-size: 1.25rem;
+  display: block !important;
+  color: #ffca28; /* Yellow */
+}
+.moon-icon {
+  display: none !important;
 }
 
-.moon-icon {
-  display: none;
-  color: #7c4dff; /* Deep purple */
-  font-size: 1.25rem;
+/* Light mode: Active, so we show the MOON to switch to dark */
+.light-mode .sun-icon {
+  display: none !important;
+}
+.light-mode .moon-icon {
+  display: block !important;
+  color: #7c4dff; /* Purple */
 }
 
 /* Styles when Light Mode is active */
