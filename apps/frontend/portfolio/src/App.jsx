@@ -9,6 +9,7 @@ import {
   faEdit,
   faFileAlt,
   faHandshake,
+  faHeart,
   faInfinity,
   faLaptop,
   faLeaf,
@@ -627,7 +628,7 @@ function App() {
           <div className="footer-bottom">
             <p>
               &copy; 2025 Clarence. All rights reserved. | Crafted with{" "}
-              <i className="fas fa-heart"></i> by Clarence
+              <FontAwesomeIcon icon={faHeart} /> by Clarence
             </p>
           </div>
         </footer>
