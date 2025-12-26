@@ -1,3 +1,43 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// Import Solid Icons (CV, Code, Lightbulb, etc.)
+import {
+  faCode,
+  faCube,
+  faDatabase,
+  faDocker,
+  faFileAlt,
+  faGitAlt,
+  faHandshake,
+  faInfinity,
+  faLeaf,
+  faLightbulb,
+  faLinux,
+  faNodeJs,
+  faPaintBrush,
+  faPalette,
+  faPlug,
+  faPython,
+  faRocket,
+  faServer,
+  faTools,
+} from "@fortawesome/free-solid-svg-icons";
+
+// Import Brand Icons (HTML5, React, JS Square, etc.)
+import {
+  faAws,
+  faBezierCurve,
+  faEdit,
+  faHtml5,
+  faJsSquare,
+  faLaptop,
+  faPenFancy,
+  faPenNib,
+  faReact,
+  faUniversalAccess,
+  faUsers,
+  faVuejs,
+} from "@fortawesome/free-brands-svg-icons";
+
 import clarenceLogo from "./assets/clarence_logo.avif";
 import "./index.css";
 
@@ -94,7 +134,7 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className="fas fa-file-alt"></i> <span>View CV</span>
+              <FontAwesomeIcon icon={faFileAlt} /> <span>View CV</span>
             </a>
           </div>
         </div>
@@ -106,7 +146,7 @@ function App() {
           <div className="about-grid">
             <div className="about-card">
               <div className="about-icon">
-                <i className="fas fa-code"></i>
+                <FontAwesomeIcon icon={faCode} />
               </div>
               <h3>Full-Stack Developer</h3>
               <p>
@@ -118,7 +158,7 @@ function App() {
 
             <div className="about-card">
               <div className="about-icon">
-                <i className="fas fa-lightbulb"></i>
+                <FontAwesomeIcon icon={faLightbulb} />
               </div>
               <h3>Problem Solver</h3>
               <p>
@@ -130,7 +170,7 @@ function App() {
 
             <div className="about-card">
               <div className="about-icon">
-                <i className="fas fa-rocket"></i>
+                <FontAwesomeIcon icon={faRocket} />
               </div>
               <h3>Innovation Advocate</h3>
               <p>
@@ -142,7 +182,7 @@ function App() {
 
             <div className="about-card">
               <div className="about-icon">
-                <i className="fas fa-handshake"></i>
+                <FontAwesomeIcon icon={faHandshake} />
               </div>
               <h3>Collaborative Partner</h3>
               <p>
@@ -293,104 +333,104 @@ function App() {
           <div className="skills-container">
             <div className="skill-category">
               <h3>
-                <i className="fas fa-paint-brush"></i> Frontend
+                <FontAwesomeIcon icon={faPaintBrush} /> Frontend
               </h3>
               <div className="skill-tags">
                 <span className="skill-tag">
-                  <i className="fab fa-react"></i> React
+                  <FontAwesomeIcon icon={faReact} /> React
                 </span>
                 <span className="skill-tag">
-                  <i className="fab fa-vuejs"></i> Vue.js
+                  <FontAwesomeIcon icon={faVuejs} /> Vue.js
                 </span>
                 <span className="skill-tag">
-                  <i className="fas fa-code"></i> TypeScript
+                  <FontAwesomeIcon icon={faCode} /> TypeScript
                 </span>
                 <span className="skill-tag">
-                  <i className="fas fa-palette"></i> Tailwind CSS
+                  <FontAwesomeIcon icon={faPalette} /> Tailwind CSS
                 </span>
                 <span className="skill-tag">
-                  <i className="fab fa-html5"></i> HTML/CSS
+                  <FontAwesomeIcon icon={faHtml5} /> HTML/CSS
                 </span>
                 <span className="skill-tag">
-                  <i className="fab fa-js-square"></i> JavaScript
+                  <FontAwesomeIcon icon={faJsSquare} /> JavaScript
                 </span>
               </div>
             </div>
 
             <div className="skill-category">
               <h3>
-                <i className="fas fa-server"></i> Backend
+                <FontAwesomeIcon icon={faServer} /> Backend
               </h3>
               <div className="skill-tags">
                 <span className="skill-tag">
-                  <i className="fab fa-node-js"></i> Node.js
+                  <FontAwesomeIcon icon={faNodeJs} /> Node.js
                 </span>
                 <span className="skill-tag">
-                  <i className="fab fa-python"></i> Python
+                  <FontAwesomeIcon icon={faPython} /> Python
                 </span>
                 <span className="skill-tag">
-                  <i className="fas fa-cube"></i> Express.js
+                  <FontAwesomeIcon icon={faCube} /> Express.js
                 </span>
                 <span className="skill-tag">
-                  <i className="fas fa-database"></i> PostgreSQL
+                  <FontAwesomeIcon icon={faDatabase} /> PostgreSQL
                 </span>
                 <span className="skill-tag">
-                  <i className="fas fa-leaf"></i> MongoDB
+                  <FontAwesomeIcon icon={faLeaf} /> MongoDB
                 </span>
                 <span className="skill-tag">
-                  <i className="fas fa-plug"></i> REST API
+                  <FontAwesomeIcon icon={faPlug} /> REST API
                 </span>
               </div>
             </div>
 
             <div className="skill-category">
               <h3>
-                <i className="fas fa-tools"></i> Tools & DevOps
+                <FontAwesomeIcon icon={faTools} /> Tools & DevOps
               </h3>
               <div className="skill-tags">
                 <span className="skill-tag">
-                  <i className="fab fa-git-alt"></i> Git
+                  <FontAwesomeIcon icon={faGitAlt} /> Git
                 </span>
                 <span className="skill-tag">
-                  <i className="fab fa-docker"></i> Docker
+                  <FontAwesomeIcon icon={faDocker} /> Docker
                 </span>
                 <span className="skill-tag">
-                  <i className="fab fa-aws"></i> AWS
+                  <FontAwesomeIcon icon={faAws} /> AWS
                 </span>
                 <span className="skill-tag">
-                  <i className="fas fa-infinity"></i> CI/CD
+                  <FontAwesomeIcon icon={faInfinity} /> CI/CD
                 </span>
                 <span className="skill-tag">
-                  <i className="fab fa-linux"></i> Linux
+                  <FontAwesomeIcon icon={faLinux} /> Linux
                 </span>
                 <span className="skill-tag">
-                  <i className="fas fa-cube"></i> Webpack
+                  <FontAwesomeIcon icon={faCube} /> Webpack
                 </span>
               </div>
             </div>
 
             <div className="skill-category">
               <h3>
-                <i className="fas fa-pen-fancy"></i> Design & UX
+                <FontAwesomeIcon icon={faPenFancy} /> Design & UX
               </h3>
               <div className="skill-tags">
                 <span className="skill-tag">
-                  <i className="fas fa-pen-nib"></i> Figma
+                  <FontAwesomeIcon icon={faPenNib} /> Figma
                 </span>
                 <span className="skill-tag">
-                  <i className="fas fa-laptop"></i> UI Design
+                  <FontAwesomeIcon icon={faLaptop} /> UI Design
                 </span>
                 <span className="skill-tag">
-                  <i className="fas fa-edit"></i> Wireframing
+                  <FontAwesomeIcon icon={faEdit} /> Wireframing
                 </span>
                 <span className="skill-tag">
-                  <i className="fas fa-bezier-curve"></i> Prototyping
+                  <FontAwesomeIcon icon={faBezierCurve} /> Prototyping
                 </span>
                 <span className="skill-tag">
-                  <i className="fas fa-users"></i> User Research
+                  <FontAwesomeIcon icon={faUsers} /> User Research
                 </span>
                 <span className="skill-tag">
-                  <i className="fas fa-universal-access"></i> Accessibility
+                  <FontAwesomeIcon icon={faUniversalAccess} /> Accessibility
                 </span>
               </div>
             </div>
