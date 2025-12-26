@@ -1,40 +1,41 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// Import Solid Icons (CV, Code, Lightbulb, etc.)
+
+// Fixed Solid Icons (Moved Edit, Users, Laptop, BezierCurve, etc. here)
 import {
+  faBezierCurve,
   faCode,
   faCube,
   faDatabase,
-  faDocker,
+  faEdit,
   faFileAlt,
-  faGitAlt,
   faHandshake,
   faInfinity,
+  faLaptop,
   faLeaf,
   faLightbulb,
-  faLinux,
-  faNodeJs,
   faPaintBrush,
   faPalette,
+  faPenFancy,
+  faPenNib,
   faPlug,
-  faPython,
   faRocket,
   faServer,
   faTools,
-} from "@fortawesome/free-solid-svg-icons";
-
-// Import Brand Icons (HTML5, React, JS Square, etc.)
-import {
-  faAws,
-  faBezierCurve,
-  faEdit,
-  faHtml5,
-  faJsSquare,
-  faLaptop,
-  faPenFancy,
-  faPenNib,
-  faReact,
   faUniversalAccess,
   faUsers,
+} from "@fortawesome/free-solid-svg-icons";
+
+// Fixed Brand Icons (Only actual brands like AWS, React, etc.)
+import {
+  faAws,
+  faDocker,
+  faGitAlt,
+  faHtml5,
+  faJsSquare,
+  faLinux,
+  faNodeJs,
+  faPython,
+  faReact,
   faVuejs,
 } from "@fortawesome/free-brands-svg-icons";
 
