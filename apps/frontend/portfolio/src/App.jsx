@@ -1,3 +1,5 @@
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 import {
   faAws,
   faDocker,
@@ -41,6 +43,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect } from "react";
+config.autoAddCss = false;
 
 import clarenceLogo from "./assets/clarence_logo.avif";
 import "./index.css";
