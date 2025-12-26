@@ -1,32 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-// Fixed Solid Icons (Moved Edit, Users, Laptop, BezierCurve, etc. here)
-import {
-  faBezierCurve,
-  faCode,
-  faCube,
-  faDatabase,
-  faEdit,
-  faFileAlt,
-  faHandshake,
-  faHeart,
-  faInfinity,
-  faLaptop,
-  faLeaf,
-  faLightbulb,
-  faPaintBrush,
-  faPalette,
-  faPenFancy,
-  faPenNib,
-  faPlug,
-  faRocket,
-  faServer,
-  faTools,
-  faUniversalAccess,
-  faUsers,
-} from "@fortawesome/free-solid-svg-icons";
-
-// Fixed Brand Icons (Only actual brands like AWS, React, etc.)
 import {
   faAws,
   faDocker,
@@ -39,21 +10,58 @@ import {
   faReact,
   faVuejs,
 } from "@fortawesome/free-brands-svg-icons";
+import {
+  faBezierCurve,
+  faCode,
+  faCube,
+  faDatabase,
+  faEdit,
+  faEnvelope,
+  faFileAlt,
+  faHandshake,
+  faHeart,
+  faInfinity,
+  faLaptop,
+  faLeaf,
+  faLightbulb,
+  faLocationArrow,
+  faMoon,
+  faPaintBrush,
+  faPalette,
+  faPenFancy,
+  faPenNib,
+  faPhone,
+  faPlug,
+  faRocket,
+  faServer,
+  faSun,
+  faTools,
+  faUniversalAccess,
+  faUsers,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect } from "react";
 
 import clarenceLogo from "./assets/clarence_logo.avif";
 import "./index.css";
+import { initPortfolio } from "./utils/initPortfolio";
 
 /**
  * Helper Component: ContactInfoItem
- * Defined at the top so it is available before App renders.
  */
 function ContactInfoItem({ icon, label, value, link }) {
   return (
     <div className="info-item">
-      <i className={`fas ${icon}`}></i>
+      <FontAwesomeIcon icon={icon} className="info-icon" />
       <div>
         <p className="info-label">{label}</p>
-        {link ? <a href={link}>{value}</a> : <p>{value}</p>}
+        {link ? (
+          <a href={link} target="_blank" rel="noopener noreferrer">
+            {value}
+          </a>
+        ) : (
+          <p>{value}</p>
+        )}
       </div>
     </div>
   );
@@ -62,14 +70,17 @@ function ContactInfoItem({ icon, label, value, link }) {
 /**
  * Main Portfolio Component
  */
-function App() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Message sent! (Add your backend logic here)");
-  };
+export default function App() {
+  useEffect(() => {
+    // Standard for late 2025: Initialize vanilla JS utils after mount
+    initPortfolio();
+  }, []);
 
   return (
     <div className="protagonist">
+      {/* Scroll Progress Bar (Managed by your animation script) */}
+      <div id="scroll-progress"></div>
+
       {/* ============ HEADER ============ */}
       <header className="main-header">
         <nav className="navbar">
@@ -89,18 +100,8 @@ function App() {
               </a>
             </li>
             <li>
-              <a href="#services" className="nav-link">
-                Services
-              </a>
-            </li>
-            <li>
               <a href="#portfolio" className="nav-link">
                 Portfolio
-              </a>
-            </li>
-            <li>
-              <a href="#skills" className="nav-link">
-                Skills
               </a>
             </li>
             <li>
@@ -109,6 +110,12 @@ function App() {
               </a>
             </li>
           </ul>
+
+          {/* THEME TOGGLE SWITCH */}
+          <button className="theme-toggle-btn" aria-label="Toggle Theme">
+            <FontAwesomeIcon icon={faSun} className="sun-icon" />
+            <FontAwesomeIcon icon={faMoon} className="moon-icon" />
+          </button>
         </nav>
       </header>
 
@@ -121,9 +128,13 @@ function App() {
               alt="Clarence logo"
               className="hero-symbol"
             />
-            <h1 className="headline">CLARENCE</h1>
-            <h2 className="tagline">Software Engineer & Digital Innovator</h2>
-            <p className="hero-description">
+            <h1 id="headline-text" className="headline">
+              CLARENCE
+            </h1>
+            <h2 id="tagline-text" className="tagline">
+              Software Engineer & Digital Innovator
+            </h2>
+            <p id="welcomeline-text" className="hero-description">
               I design and deliver high-performance software solutions built for
               scale and reliability. Explore a portfolio shaped by disciplined
               engineering and a vision for the future.
@@ -203,12 +214,9 @@ function App() {
           <div className="portfolio-grid">
             <div className="portfolio-card">
               <div className="portfolio-image">
-                <img
-                  src="https://via.placeholder.com/400x300?text=Project+1"
-                  alt="Chy-Wears"
-                />
+                <img src="https://via.placeholder.com" alt="Chy-Wears" />
                 <div className="portfolio-overlay">
-                  <a href="dashboard.html" className="portfolio-btn">
+                  <a href="#" className="portfolio-btn">
                     View Project
                   </a>
                 </div>
@@ -225,12 +233,9 @@ function App() {
 
             <div className="portfolio-card">
               <div className="portfolio-image">
-                <img
-                  src="https://via.placeholder.com/400x300?text=Project+2"
-                  alt="Unit Converter"
-                />
+                <img src="https://via.placeholder.com" alt="Unit Converter" />
                 <div className="portfolio-overlay">
-                  <a href="dashboard.html" className="portfolio-btn">
+                  <a href="#" className="portfolio-btn">
                     View Project
                   </a>
                 </div>
@@ -246,11 +251,11 @@ function App() {
             <div className="portfolio-card">
               <div className="portfolio-image">
                 <img
-                  src="https://via.placeholder.com/400x300?text=Project+3"
-                  alt="Calculator"
+                  src="https://via.placeholder.com"
+                  alt="Advanced Calculator"
                 />
                 <div className="portfolio-overlay">
-                  <a href="dashboard.html" className="portfolio-btn">
+                  <a href="#" className="portfolio-btn">
                     View Project
                   </a>
                 </div>
@@ -258,19 +263,16 @@ function App() {
               <h3>Advanced Calculator</h3>
               <p className="portfolio-category">Web App and Productivity</p>
               <p className="portfolio-description">
-                Scientific calculator with graphing capabilities, equation
-                solver, and customizable themes for power users.
+                Scientific calculator supporting complex equations, graphing
+                functions, and a persistent calculation history log.
               </p>
             </div>
 
             <div className="portfolio-card">
               <div className="portfolio-image">
-                <img
-                  src="https://via.placeholder.com/400x300?text=Project+4"
-                  alt="Fizzlin"
-                />
+                <img src="https://via.placeholder.com" alt="Fizzlin" />
                 <div className="portfolio-overlay">
-                  <a href="dashboard.html" className="portfolio-btn">
+                  <a href="#" className="portfolio-btn">
                     View Project
                   </a>
                 </div>
@@ -286,11 +288,11 @@ function App() {
             <div className="portfolio-card">
               <div className="portfolio-image">
                 <img
-                  src="https://via.placeholder.com/400x300?text=Project+5"
-                  alt="Dashboard"
+                  src="https://via.placeholder.com"
+                  alt="Analytics Dashboard"
                 />
                 <div className="portfolio-overlay">
-                  <a href="dashboard.html" className="portfolio-btn">
+                  <a href="#" className="portfolio-btn">
                     View Project
                   </a>
                 </div>
@@ -307,12 +309,9 @@ function App() {
 
             <div className="portfolio-card">
               <div className="portfolio-image">
-                <img
-                  src="https://via.placeholder.com/400x300?text=Project+6"
-                  alt="Portfolio"
-                />
+                <img src="https://via.placeholder.com" alt="Portfolio" />
                 <div className="portfolio-overlay">
-                  <a href="dashboard.html" className="portfolio-btn">
+                  <a href="#" className="portfolio-btn">
                     View Project
                   </a>
                 </div>
@@ -559,34 +558,47 @@ function App() {
           <div className="contact-content">
             <div className="contact-info">
               <h3>Get In Touch</h3>
+              {/* Pass icon objects, not strings */}
               <ContactInfoItem
-                icon="fa-envelope"
+                icon={faEnvelope}
                 label="Email"
                 value="your.email@example.com"
                 link="mailto:your.email@example.com"
               />
               <ContactInfoItem
-                icon="fa-phone"
+                icon={faPhone}
                 label="Phone"
                 value="+1 (234) 567-890"
                 link="tel:+1234567890"
               />
               <ContactInfoItem
-                icon="fa-map-marker-alt"
+                icon={faLocationArrow}
                 label="Location"
                 value="Lagos, Nigeria"
               />
             </div>
 
-            <form className="contact-form" onSubmit={handleSubmit}>
+            {/* The 'contact-form' class is used by your initContactForm utility script */}
+            <form className="contact-form">
               <div className="form-group">
-                <input type="text" placeholder="Your Name" required />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                />
               </div>
               <div className="form-group">
-                <input type="email" placeholder="Your Email" required />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+                />
               </div>
               <div className="form-group">
                 <textarea
+                  name="message"
                   placeholder="Your Message"
                   rows="5"
                   required
@@ -636,5 +648,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
