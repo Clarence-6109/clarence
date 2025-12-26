@@ -106,7 +106,7 @@ function App() {
           <div className="about-grid">
             <div className="about-card">
               <div className="about-icon">
-                <i class="fas fa-code"></i>
+                <i className="fas fa-code"></i>
               </div>
               <h3>Full-Stack Developer</h3>
               <p>

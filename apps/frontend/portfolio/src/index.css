@@ -184,7 +184,7 @@ section {
 
 .nav-logo {
   width: 48px;
-  height: 48px;
+  height: auto;
   border-radius: 10px;
   background: linear-gradient(
     135deg,
@@ -299,7 +299,7 @@ section {
 
 .hero-symbol {
   width: 120px;
-  height: 120px;
+  height: auto;
   margin: 0 auto 20px;
   border-radius: 20px;
   background: linear-gradient(
