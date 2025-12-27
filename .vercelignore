@@ -1,0 +1,5 @@
+# Ignore all backend code
+apps/backend/**
+
+# Optional: ignore node_modules everywhere
+node_modules
