@@ -244,6 +244,38 @@ export default function App() {
                 Demonstrated proficiency in modern React development.
               </p>
             </div>
+
+            <div className="achievements-card">
+              <div className="achievements-image">
+                <img src="/cert-react.avif" alt="React Certification" />
+                <div className="achievements-overlay">
+                  <a href="#" className="achievements-btn">
+                    View Certificate
+                  </a>
+                </div>
+              </div>
+              <h3>Responsive Web Design Certification</h3>
+              <p className="achievements-description">
+                Demonstrated proficiency of using Html and CSS to create a
+                modern responsive web design.
+              </p>
+            </div>
+
+            <div className="achievements-card">
+              <div className="achievements-image">
+                <img src="/cert-react.avif" alt="React Certification" />
+                <div className="achievements-overlay">
+                  <a href="#" className="achievements-btn">
+                    View Certificate
+                  </a>
+                </div>
+              </div>
+              <h3>JavaScript Certification</h3>
+              <p className="achievements-description">
+                Experienced and well versed in use of JavaScript and application
+                of its syntax.
+              </p>
+            </div>
           </div>
         </div>
       </section>
