@@ -619,96 +619,154 @@ section {
   line-height: 1.7;
 }
 
-/* ============ SERVICES SECTION ============ */
-.services-section {
-  background: linear-gradient(
-    180deg,
-    rgba(10, 10, 10, 0.5),
-    rgba(26, 26, 26, 0.5)
-  );
+/* ================= ACHIEVEMENTS ================= */
+.achievements-section {
+  padding: 6rem 0;
+  background-color: var(--bg-section);
 }
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  margin-top: 50px;
-}
-
-.service-item {
-  background: linear-gradient(
-    135deg,
-    rgba(0, 188, 212, 0.05),
-    rgba(124, 77, 255, 0.05)
-  );
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: var(--card-radius);
-  padding: 35px;
-  position: relative;
-  overflow: hidden;
-  transition: transform var(--transition-medium),
-    border-color var(--transition-medium);
-}
-
-.service-item::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  right: -50%;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(0, 188, 212, 0.1), transparent);
-  border-radius: 50%;
-  transition: all var(--transition-slow);
-}
-
-.service-item:hover::before {
-  top: -25%;
-  right: -25%;
-}
-
-.service-item:hover {
-  transform: translateY(-10px);
-  border-color: var(--accent-color);
-}
-
-.service-number {
+.achievements-section .section-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--accent-2);
-  opacity: 0.3;
-  margin-bottom: 10px;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text-primary);
 }
-
-.service-item h3 {
-  margin-bottom: 15px;
-  color: var(--text-light);
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+.achievements-card {
+  background-color: var(--card-bg);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.achievements-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--card-hover-shadow);
+}
+.achievements-image {
   position: relative;
-  z-index: 1;
+  overflow: hidden;
 }
-
-.service-item p {
-  color: var(--muted);
-  margin-bottom: 20px;
-  position: relative;
-  z-index: 1;
-  font-size: 0.95rem;
+.achievements-image img {
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid var(--border-color);
 }
-
-.service-link {
-  display: inline-flex;
+.achievements-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 8px;
-  color: var(--accent-color);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.achievements-card:hover .achievements-overlay {
+  opacity: 1;
+}
+.achievements-btn {
+  padding: 0.6rem 1.4rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 0.6rem;
+  text-decoration: none;
   font-weight: 600;
-  position: relative;
-  z-index: 1;
-  transition: gap var(--transition-fast);
+  transition: background-color 0.3s ease;
+}
+.achievements-btn:hover {
+  background-color: var(--primary-color-dark);
+}
+.achievements-card h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 1rem;
+  color: var(--text-primary);
+}
+.achievements-description {
+  margin: 0.5rem 1rem 1rem 1rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
 }
 
-.service-link:hover {
-  gap: 12px;
-  color: var(--accent-2);
+/* ================= EXPERIENCE ================= */
+.experience-section {
+  padding: 6rem 0;
+  background-color: var(--bg-section);
+}
+.experience-section .section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text-primary);
+}
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+.experience-card {
+  background-color: var(--card-bg);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.experience-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--card-hover-shadow);
+}
+.experience-image {
+  position: relative;
+  overflow: hidden;
+}
+.experience-image img {
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid var(--border-color);
+}
+.experience-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.experience-card:hover .experience-overlay {
+  opacity: 1;
+}
+.experience-btn {
+  padding: 0.6rem 1.4rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 0.6rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+.experience-btn:hover {
+  background-color: var(--primary-color-dark);
+}
+.experience-card h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 1rem;
+  color: var(--text-primary);
+}
+.experience-description {
+  margin: 0.5rem 1rem 1rem 1rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
 }
 
 /* ============ PORTFOLIO SECTION ============ */
