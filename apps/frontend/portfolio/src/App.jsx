@@ -216,7 +216,15 @@ export default function App() {
           <div className="portfolio-grid">
             <div className="portfolio-card">
               <div className="portfolio-image">
-                <img src="https://via.placeholder.com" alt="Chy-Wears" />
+                <img
+                  src="/public/chy_wears.avif"
+                  alt="Chy-Wears E-Commerce Website"
+                  width="3840"
+                  height="2160"
+                  loading="lazy"
+                  decoding="async"
+                  className="portfolio-img"
+                />
                 <div className="portfolio-overlay">
                   <a href="#" className="portfolio-btn">
                     View Project
@@ -272,7 +280,15 @@ export default function App() {
 
             <div className="portfolio-card">
               <div className="portfolio-image">
-                <img src="https://via.placeholder.com" alt="Fizzlin" />
+                <img
+                  src="/public/fizzlin-beverage.avif"
+                  alt="Fizzlin Beverage Brand Website"
+                  width="3840"
+                  height="2160"
+                  loading="lazy"
+                  decoding="async"
+                  className="portfolio-img"
+                />
                 <div className="portfolio-overlay">
                   <a href="#" className="portfolio-btn">
                     View Project
@@ -630,7 +646,10 @@ export default function App() {
                 <a href="#" title="Twitter">
                   <ion-icon name="logo-twitter"></ion-icon>
                 </a>
-                <a href="#" title="GitHub">
+                <a
+                  href="https://github.com/Clarence-6109/clarence"
+                  title="GitHub"
+                >
                   <ion-icon name="logo-github"></ion-icon>
                 </a>
                 <a href="#" title="LinkedIn">

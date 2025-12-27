@@ -1,0 +1,150 @@
+:root {
+  --bg: #0b1120;
+  --panel: #0f172a;
+  --card: #111827;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --success: #22c55e;
+  --danger: #ef4444;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  font-family: system-ui;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+body.light-mode {
+  --bg: #f4f4f8;
+  --panel: #e5e7eb;
+  --card: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --accent: #3b82f6;
+  --success: #16a34a;
+  --danger: #dc2626;
+}
+
+.sidebar {
+  width: 240px;
+  background: var(--panel);
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+}
+.sidebar nav a {
+  display: block;
+  padding: 10px;
+  color: var(--muted);
+  text-decoration: none;
+}
+.sidebar nav a.active,
+.sidebar nav a:hover {
+  color: var(--accent);
+}
+#themeToggle {
+  margin-top: 20px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.main {
+  flex: 1;
+  padding: 20px;
+}
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.filters select {
+  padding: 5px;
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.kpi-card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+.kpi-card h3 {
+  margin: 8px 0;
+  font-size: 1.8rem;
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  margin-top: 20px;
+}
+.card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+th,
+td {
+  padding: 12px;
+  border-bottom: 1px solid #1f2933;
+  text-align: left;
+}
+.highlight {
+  animation: highlightRow 1s;
+}
+@keyframes highlightRow {
+  from {
+    background: #22c55e22;
+  }
+  to {
+    background: transparent;
+  }
+}
+
+.table-controls {
+  margin-bottom: 10px;
+  display: flex;
+  gap: 8px;
+}
+button {
+  cursor: pointer;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+}
+button:hover {
+  opacity: 0.8;
+}
+
+canvas {
+  width: 100% !important;
+  height: 300px !important;
+}
+@media (max-width: 800px) {
+  .chart-grid {
+    grid-template-columns: 1fr;
+  }
+  canvas {
+    height: 240px !important;
+  }
+}
