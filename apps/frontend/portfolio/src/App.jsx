@@ -217,7 +217,7 @@ export default function App() {
             <div className="portfolio-card">
               <div className="portfolio-image">
                 <img
-                  src="/public/chy_wears.avif"
+                  src="../public/chy_wears.avif"
                   alt="Chy-Wears E-Commerce Website"
                   width="3840"
                   height="2160"
@@ -281,7 +281,7 @@ export default function App() {
             <div className="portfolio-card">
               <div className="portfolio-image">
                 <img
-                  src="/public/fizzlin-beverage.avif"
+                  src="../public/fizzlin-beverage.avif"
                   alt="Fizzlin Beverage Brand Website"
                   width="3840"
                   height="2160"
