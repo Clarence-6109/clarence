@@ -53,6 +53,12 @@
   }
 }
 
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
 body {
   transition: background-color var(--transition-medium),
     color var(--transition-medium);
@@ -147,6 +153,14 @@ a:focus {
 @media (max-width: 480px) {
   .container1 {
     padding: 0 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-card,
+  .achievements-card,
+  .experience-card {
+    transform: none;
   }
 }
 
@@ -284,6 +298,16 @@ section {
   background: var(--accent-color);
   border-radius: 2px;
   transition: all var(--transition-fast);
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
 }
 
 /* THEME SWITCHER UI */
