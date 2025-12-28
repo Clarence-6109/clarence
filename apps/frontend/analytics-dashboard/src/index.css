@@ -1,15 +1,357 @@
-/**
- * Copyright 2025 HomePC
- * 
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *     https://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+/* ================================
+   GLOBAL RESET
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  font-family: "Segoe UI", Roboto, system-ui, sans-serif;
+  background: #f0f4ff;
+  color: #1f2937;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ================================
+   TYPOGRAPHY
+================================ */
+h1,
+h2,
+h3 {
+  color: #1e40af;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ================================
+   DASHBOARD HEADER
+================================ */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-header h1 {
+  color: #1e3a8a;
+}
+
+.theme-toggle {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #2563eb;
+  background: #ffffff;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background: #e0e7ff;
+  transform: translateY(-2px);
+}
+
+/* ================================
+   LAYOUT
+================================ */
+.dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* ================================
+   BUTTONS
+================================ */
+button {
+  padding: 0.55rem 1.1rem;
+  border: 1px solid #3b82f6;
+  border-radius: 8px;
+  background: #ffffff;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #e0e7ff;
+  transform: translateY(-2px);
+}
+
+button.primary {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+}
+
+button.primary:hover {
+  background: #1e40af;
+  border-color: #1e40af;
+}
+
+/* ================================
+   FORMS
+================================ */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.65rem;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+  outline: none;
+}
+
+/* ================================
+   TABLE
+================================ */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+th,
+td {
+  padding: 0.75rem;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+th {
+  background: #e0e7ff;
+  font-weight: 600;
+  color: #1e3a8a;
+  border-radius: 8px 8px 0 0;
+}
+
+td {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* ================================
+   MODAL
+================================ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #ffffff;
+  padding: 2rem;
+  width: 400px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s ease;
+}
+
+.modal h2 {
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: #1e3a8a;
+}
+
+.modal button {
+  align-self: flex-end;
+}
+
+/* ================================
+   CHARTS
+================================ */
+.chart-container {
+  height: 400px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.chart-container canvas {
+  border-radius: 12px;
+}
+
+/* Chart legend improvements */
+.chart-legend {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 0.8rem;
+}
+
+.chart-legend div {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.chart-legend span {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+/* ================================
+   THEMES
+================================ */
+body.light {
+  background: #f5f7fa;
+  color: #1f2937;
+}
+
+body.dark {
+  background: #1f2937;
+  color: #f5f7fa;
+}
+
+body.dark .card {
+  background: #1f2937;
+  color: #f5f7fa;
+  border: 1px solid #374151;
+}
+
+body.dark button {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+}
+
+body.dark button:hover {
+  background: #1d4ed8;
+}
+
+body.dark input,
+body.dark select,
+body.dark textarea {
+  background: #374151;
+  color: #f5f7fa;
+  border: 1px solid #4b5563;
+}
+
+body.dark th,
+body.dark td {
+  border-bottom: 1px solid #4b5563;
+}
+
+body.dark th {
+  background: #1f2937;
+}
+
+/* ================================
+   GENERAL ACCENTS
+================================ */
+button,
+input,
+select,
+textarea,
+.card,
+.chart-container,
+.modal {
+  transition: all 0.3s ease;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* ================================
+   STATS GRID
+================================ */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stats-card h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #1e3a8a;
+}
+
+.stats-value {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 0.3rem 0;
+  color: #2563eb;
+}
+
+/* ================================
+   PROGRESS BAR
+================================ */
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #2563eb;
+  border-radius: 8px 0 0 8px;
+  transition: width 0.5s ease-in-out;
+}

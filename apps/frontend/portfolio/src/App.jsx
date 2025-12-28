@@ -417,11 +417,14 @@ export default function App() {
               <div className="portfolio-card">
                 <div className="portfolio-image">
                   <img
-                    src="https://via.placeholder.com"
+                    src="/analytics_dashboard.avif"
                     alt="Analytics Dashboard"
                   />
                   <div className="portfolio-overlay">
-                    <a href="#" className="portfolio-btn">
+                    <a
+                      href="https://analytics-dashboard-clarence.vercel.app/"
+                      className="portfolio-btn"
+                    >
                       View Project
                     </a>
                   </div>

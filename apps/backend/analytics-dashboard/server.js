@@ -1,17 +1,22 @@
-// apps/backend/analytics-dashboard/server.js
 const express = require("express");
 const cors = require("cors");
-const metricsRouter = require("./routes/metrics");
-const activityRouter = require("./routes/activity");
+require("dotenv").config();
+
+const authRoutes = require("./routes/auth");
+const recordsRoutes = require("./routes/records");
+const recordTypesRoutes = require("./routes/recordTypes");
 
 const app = express();
+
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/metrics", metricsRouter);
-app.use("/api/activity", activityRouter);
+// Routes
+app.use("/auth", authRoutes);
+app.use("/records", recordsRoutes);
+app.use("/record-types", recordTypesRoutes);
 
+// Start server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Backend server running on http://localhost:${PORT}`);
-});
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
