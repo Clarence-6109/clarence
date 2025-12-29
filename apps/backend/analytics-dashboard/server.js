@@ -1,6 +1,7 @@
+require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
-require("dotenv").config();
 
 const authRoutes = require("./routes/auth");
 const recordsRoutes = require("./routes/records");
@@ -9,7 +10,12 @@ const recordTypesRoutes = require("./routes/recordTypes");
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://analytics-dashboard-clarence.vercel.app/",
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 // Routes
