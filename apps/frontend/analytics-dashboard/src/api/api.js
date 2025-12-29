@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000", // your backend URL
+  baseURL: "https://analytics-dashboard-clarence.onrender.com", // your backend URL
 });
 
 // Automatically attach token from localStorage
