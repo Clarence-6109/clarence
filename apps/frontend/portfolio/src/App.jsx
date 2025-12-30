@@ -4,16 +4,22 @@ import {
   faAws,
   faDocker,
   faGitAlt,
+  faGithub,
   faHtml5,
   faJsSquare,
   faLinux,
   faNodeJs,
+  faOrcid,
   faPython,
   faReact,
+  faTelegram,
+  faUpwork,
   faVuejs,
+  faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import {
   faBezierCurve,
+  faBook,
   faCode,
   faCube,
   faDatabase,
@@ -131,26 +137,40 @@ export default function App() {
                 className="hero-symbol"
               />
               <h1 id="headline-text" className="headline">
-                CLARENCE
+                Chinemerem Madu Clarence
               </h1>
               <h2 id="tagline-text" className="tagline">
-                Software Engineer & Digital Innovator
+                AI Solutions Architect & Technical Strategist
               </h2>
               <p id="welcomeline-text" className="hero-description">
-                I design and deliver high-performance software solutions built
-                for scale and reliability. Explore a portfolio shaped by
-                disciplined engineering and a vision for the future.
+                I design and deploy intelligent, full-stack solutions built for
+                technical scale and reliability.
+                <br /> My expertise is rooted in rigorous AI research and
+                translating complex innovations into compelling, accessible
+                narratives.
               </p>
             </div>
-            <div className="btn">
-              <a
-                href="/clarenceresume.docx"
-                className="letgo cta-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon icon={faFileAlt} /> <span>View CV</span>
-              </a>
+            <div className="btn-container">
+              <div className="btn">
+                <a
+                  href="/clarenceresume.docx"
+                  className="letgo cta-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FontAwesomeIcon icon={faFileAlt} /> <span>View Resume</span>
+                </a>
+              </div>
+              <div className="btn">
+                <a
+                  href="/clarenceresume.docx"
+                  className="letgo cta-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FontAwesomeIcon icon={faFileAlt} /> <span>View CV</span>
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -173,13 +193,14 @@ export default function App() {
 
               <div className="about-card">
                 <div className="about-icon">
-                  <FontAwesomeIcon icon={faLightbulb} />
+                  <FontAwesomeIcon icon={faPenFancy} />
                 </div>
-                <h3>Problem Solver</h3>
+                <h3>Research & Analysis</h3>
                 <p>
-                  Passionate about solving complex technical challenges with
-                  elegant, efficient solutions. Driven by curiosity and
-                  continuous learning.
+                  I perform rigorous, evidence-based analysis on emerging tech,
+                  AI, and industry trends to inform strategic decisions, produce
+                  high-impact thought leadership and compelling technical
+                  documentation.
                 </p>
               </div>
 
@@ -203,6 +224,30 @@ export default function App() {
                 <p>
                   Believe in the power of teamwork. Excellent communicator who
                   thrives in agile environments and values open collaboration.
+                </p>
+              </div>
+              <div className="about-card">
+                <div className="about-icon">
+                  <FontAwesomeIcon icon={faLightbulb} />
+                </div>
+                <h3>Problem Solver</h3>
+                <p>
+                  Passionate about solving complex technical challenges with
+                  elegant, efficient solutions. Driven by curiosity and
+                  continuous learning.
+                </p>
+              </div>
+              <div className="about-card">
+                <div className="about-icon">
+                  <FontAwesomeIcon icon={faBook} />
+                </div>
+                <h3>Thought Writer</h3>
+                <p>
+                  I leverage deep domain knowledge in Full-Stack and AI to
+                  produce insightful articles, contents, industrial analysis and
+                  technical documentation that translate complex technological
+                  advancement to educate, inspire, drive understanding and shape
+                  dialogue around the future of technology.
                 </p>
               </div>
             </div>
@@ -256,8 +301,10 @@ export default function App() {
                 </div>
                 <h3>Responsive Web Design Certification</h3>
                 <p className="achievements-description">
-                  Demonstrated proficiency of using Html and CSS to create a
-                  modern responsive web design.
+                  Teaches the fundamentals of HTML and CSS, including modern
+                  layout, design, accessibility, and responsive web development.
+                  Also helps in building practical projects and gaining the
+                  skills to create professional, user-friendly webpages.
                 </p>
               </div>
 
@@ -671,23 +718,29 @@ export default function App() {
             <div className="social-links">
               <h3>Follow Me</h3>
               <div className="icon">
-                <a href="#" title="Facebook">
-                  <ion-icon name="logo-facebook"></ion-icon>
+                <a href="https://x.com/it_is_clarence" title="Twitter">
+                  <FontAwesomeIcon icon={faXTwitter} />
                 </a>
-                <a href="#" title="Instagram">
-                  <ion-icon name="logo-instagram"></ion-icon>
-                </a>
-                <a href="#" title="Twitter">
-                  <ion-icon name="logo-twitter"></ion-icon>
+                <a
+                  href="https://t.me/chinemerem_clarence_madu"
+                  title="Telegram"
+                >
+                  <FontAwesomeIcon icon={faTelegram} />
                 </a>
                 <a
                   href="https://github.com/Clarence-6109/clarence"
                   title="GitHub"
                 >
-                  <ion-icon name="logo-github"></ion-icon>
+                  <FontAwesomeIcon icon={faGithub} />
                 </a>
-                <a href="#" title="LinkedIn">
-                  <ion-icon name="logo-linkedin"></ion-icon>
+                <a
+                  href="https://orcid.org/my-orcid?orcid=0009-0009-6911-2442"
+                  title="ORCID"
+                >
+                  <FontAwesomeIcon icon={faOrcid} />
+                </a>
+                <a href="#">
+                  <FontAwesomeIcon icon={faUpwork} />
                 </a>
               </div>
             </div>

@@ -12,7 +12,7 @@ const app = express();
 // Middleware
 app.use(
   cors({
-    origin: "https://analytics-dashboard-clarence.vercel.app/",
+    origin: "https://analytics-dashboard-clarence.vercel.app",
     credentials: true,
   })
 );

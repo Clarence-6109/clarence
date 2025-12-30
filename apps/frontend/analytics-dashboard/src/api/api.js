@@ -1,8 +1,17 @@
 import axios from "axios";
-
+const API_BASE = import.meta.env.VITE_API_URL;
 const api = axios.create({
-  baseURL: "https://analytics-dashboard-clarence.onrender.com", // your backend URL
+  baseURL: API_BASE,
 });
+
+export async function login(payload) {
+  const res = await fetch(`${API_BASE}/auth/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  return res.json();
+}
 
 // Automatically attach token from localStorage
 api.interceptors.request.use((config) => {
