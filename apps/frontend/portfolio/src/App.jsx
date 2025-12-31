@@ -2,6 +2,7 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import {
   faAws,
+  faCss3,
   faDocker,
   faGitAlt,
   faGithub,
@@ -18,8 +19,10 @@ import {
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import {
+  faArrowUp,
   faBezierCurve,
   faBook,
+  faChartLine,
   faCode,
   faCube,
   faDatabase,
@@ -40,20 +43,21 @@ import {
   faPenNib,
   faPhone,
   faPlug,
+  faQuoteLeft,
   faRocket,
   faServer,
   faSun,
   faTools,
   faUniversalAccess,
+  faUpRightFromSquare,
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect } from "react";
-config.autoAddCss = false;
-
+import { useEffect, useRef, useState } from "react";
 import clarenceLogo from "./assets/clarence_logo.avif";
 import "./index.css";
 import { initPortfolio } from "./utils/initPortfolio";
+config.autoAddCss = false;
 
 /**
  * Helper Component: ContactInfoItem
@@ -76,21 +80,490 @@ function ContactInfoItem({ icon, label, value, link }) {
   );
 }
 
+// Generic Carousel Component
+function Carousel({ items, slideCount, autoPlayInterval = 6000 }) {
+  const carouselRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const moveTo = (index) => {
+    setCurrentIndex(index);
+  };
+
+  const move = (direction) => {
+    setCurrentIndex((prev) => (prev + direction + slideCount) % slideCount);
+  };
+
+  useEffect(() => {
+    if (!isHovered && autoPlayInterval) {
+      const interval = setInterval(() => {
+        move(1);
+      }, autoPlayInterval);
+      return () => clearInterval(interval);
+    }
+  }, [currentIndex, isHovered, autoPlayInterval]);
+
+  return (
+    <div
+      className="carousel"
+      ref={carouselRef}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div
+        className="carousel-container"
+        style={{
+          transform: `translateX(-${currentIndex * 100}%)`,
+          transition: "transform 0.5s ease",
+        }}
+      >
+        {items.map((item, i) => (
+          <div className="carousel-slide" key={i}>
+            {item}
+          </div>
+        ))}
+      </div>
+      <button className="arrow left" onClick={() => move(-1)}>
+        &#9664;
+      </button>
+      <button className="arrow right" onClick={() => move(1)}>
+        &#9654;
+      </button>
+      <div className="carousel-dots">
+        {Array.from({ length: slideCount }).map((_, i) => (
+          <button
+            key={i}
+            className={`dot ${i === currentIndex ? "active" : ""}`}
+            onClick={() => moveTo(i)}
+            aria-label={`Go to slide ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 /**
  * Main Portfolio Component
  */
 export default function App() {
   useEffect(() => {
-    // Standard for late 2025: Initialize vanilla JS utils after mount
     initPortfolio();
+
+    // Back-to-top button logic
+    const backToTop = document.getElementById("back-to-top");
+    if (backToTop) {
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 500) {
+          backToTop.classList.add("visible");
+        } else {
+          backToTop.classList.remove("visible");
+        }
+      });
+    }
   }, []);
+
+  // Achievements items
+  const achievementsItems = [
+    <div className="achievements-card">
+      <div className="achievements-image">
+        <img src="/cert-aws.avif" alt="AWS Certification" />
+        <div className="achievements-overlay">
+          <a href="#" className="achievements-btn">
+            View Certificate
+          </a>
+        </div>
+      </div>
+      <h3>AWS Certified Solutions Architect</h3>
+      <p className="achievements-description">
+        Validated expertise in designing and deploying scalable cloud
+        applications.
+      </p>
+    </div>,
+    <div className="achievements-card">
+      <div className="achievements-image">
+        <img src="/cert-react.avif" alt="React Certification" />
+        <div className="achievements-overlay">
+          <a href="#" className="achievements-btn">
+            View Certificate
+          </a>
+        </div>
+      </div>
+      <h3>React Developer Certification</h3>
+      <p className="achievements-description">
+        Demonstrated proficiency in modern React development.
+      </p>
+    </div>,
+    <div className="achievements-card">
+      <div className="achievements-image">
+        <img src="/cert-react.avif" alt="React Certification" />
+        <div className="achievements-overlay">
+          <a href="#" className="achievements-btn">
+            View Certificate
+          </a>
+        </div>
+      </div>
+      <h3>Responsive Web Design Certification</h3>
+      <p className="achievements-description">
+        Teaches the fundamentals of HTML and CSS, including modern layout,
+        design, accessibility, and responsive web development. Also helps in
+        building practical projects and gaining the skills to create
+        professional, user-friendly webpages.
+      </p>
+    </div>,
+    <div className="achievements-card">
+      <div className="achievements-image">
+        <img src="/cert-react.avif" alt="React Certification" />
+        <div className="achievements-overlay">
+          <a href="#" className="achievements-btn">
+            View Certificate
+          </a>
+        </div>
+      </div>
+      <h3>JavaScript Certification</h3>
+      <p className="achievements-description">
+        Experienced and well versed in use of JavaScript and application of its
+        syntax.
+      </p>
+    </div>,
+  ];
+
+  // Portfolio items with dual buttons
+  const portfolioItems = [
+    <div className="portfolio-card">
+      <div className="portfolio-image">
+        <img
+          src="/chy_wears.avif"
+          alt="Chy-Wears E-Commerce Website"
+          className="portfolio-img"
+        />
+        <div className="portfolio-overlay">
+          <div className="dual-buttons">
+            <a href="#" className="portfolio-btn">
+              <FontAwesomeIcon icon={faUpRightFromSquare} /> Live Demo
+            </a>
+            <a href="#" className="portfolio-btn secondary">
+              <FontAwesomeIcon icon={faGithub} /> Source Code
+            </a>
+          </div>
+        </div>
+      </div>
+      <h3>Chy-Wears E-Commerce</h3>
+      <p className="portfolio-category">Web Development and E-Commerce</p>
+      <div className="tech-tags">
+        <span>
+          <FontAwesomeIcon icon={faReact} />
+          React
+        </span>
+        <span>
+          <FontAwesomeIcon icon={faChartLine} />
+          Chart.js
+        </span>
+        <span>
+          <FontAwesomeIcon icon={faCss3} />
+          CSS3
+        </span>
+      </div>
+      <p className="portfolio-description">
+        A modern e-commerce platform for fashion retail with inventory
+        management, payment integration, and user analytics.
+      </p>
+    </div>,
+    <div className="portfolio-card">
+      <div className="portfolio-image">
+        <img src="https://via.placeholder.com/600" alt="Unit Converter" />
+        <div className="portfolio-overlay">
+          <div className="dual-buttons">
+            <a href="#" className="portfolio-btn">
+              <FontAwesomeIcon icon={faUpRightFromSquare} /> Live Demo
+            </a>
+            <a href="#" className="portfolio-btn secondary">
+              <FontAwesomeIcon icon={faGithub} /> Source Code
+            </a>
+          </div>
+        </div>
+      </div>
+      <h3>Unit Converter App</h3>
+      <p className="portfolio-category">Mobile App and Utility</p>
+      <div className="tech-tags">
+        <span>
+          <FontAwesomeIcon icon={faReact} />
+          React
+        </span>
+        <span>
+          <FontAwesomeIcon icon={faChartLine} />
+          Chart.js
+        </span>
+        <span>
+          <FontAwesomeIcon icon={faCss3} />
+          CSS3
+        </span>
+      </div>
+      <p className="portfolio-description">
+        Cross-platform mobile app for unit conversions. Fast, offline-capable,
+        with beautiful UI and real-time calculations.
+      </p>
+    </div>,
+    <div className="portfolio-card">
+      <div className="portfolio-image">
+        <img
+          src="/ hyper_scientific_calculator.avif"
+          alt="Hyper Scientific Calculator"
+        />
+        <div className="portfolio-overlay">
+          <div className="dual-buttons">
+            <a
+              href="https://hyper-scientific-calculator.vercel.app/"
+              className="portfolio-btn"
+            >
+              <FontAwesomeIcon icon={faUpRightFromSquare} /> Live Demo
+            </a>
+            <a href="#" className="portfolio-btn secondary">
+              <FontAwesomeIcon icon={faGithub} /> Source Code
+            </a>
+          </div>
+        </div>
+      </div>
+      <h3>Hyper Scientific Calculator</h3>
+      <p className="portfolio-category">Web App and Productivity</p>
+      <div className="tech-tags">
+        <span>
+          <FontAwesomeIcon icon={faReact} />
+          React
+        </span>
+        <span>
+          <FontAwesomeIcon icon={faChartLine} />
+          Chart.js
+        </span>
+        <span>
+          <FontAwesomeIcon icon={faCss3} />
+          CSS3
+        </span>
+      </div>
+      <p className="portfolio-description">
+        Scientific calculator supporting complex equations, graphing functions,
+        and a persistent calculation history log.
+      </p>
+    </div>,
+    <div className="portfolio-card">
+      <div className="portfolio-image">
+        <img
+          src="/fizzlin-beverage.avif"
+          alt="Fizzlin Beverage Brand Website"
+          className="portfolio-img"
+        />
+        <div className="portfolio-overlay">
+          <div className="dual-buttons">
+            <a href="#" className="portfolio-btn">
+              <FontAwesomeIcon icon={faUpRightFromSquare} /> Live Demo
+            </a>
+            <a href="#" className="portfolio-btn secondary">
+              <FontAwesomeIcon icon={faGithub} /> Source Code
+            </a>
+          </div>
+        </div>
+      </div>
+      <h3>Fizzlin Beverage Brand</h3>
+      <p className="portfolio-category">Web Design and Branding</p>
+      <div className="tech-tags">
+        <span>
+          <FontAwesomeIcon icon={faReact} />
+          React
+        </span>
+        <span>
+          <FontAwesomeIcon icon={faChartLine} />
+          Chart.js
+        </span>
+        <span>
+          <FontAwesomeIcon icon={faCss3} />
+          CSS3
+        </span>
+      </div>
+      <p className="portfolio-description">
+        Brand website with interactive product showcase, e-commerce integration,
+        and engaging multimedia content.
+      </p>
+    </div>,
+    <div className="portfolio-card">
+      <div className="portfolio-image">
+        <img src="/analytics_dashboard.avif" alt="Analytics Dashboard" />
+        <div className="portfolio-overlay">
+          <div className="dual-buttons">
+            <a
+              href="https://analytics-dashboard-clarence.vercel.app/"
+              className="portfolio-btn"
+            >
+              <FontAwesomeIcon icon={faUpRightFromSquare} /> Live Demo
+            </a>
+            <a href="#" className="portfolio-btn secondary">
+              <FontAwesomeIcon icon={faGithub} /> Source Code
+            </a>
+          </div>
+        </div>
+      </div>
+      <h3>Analytics Dashboard</h3>
+      <p className="portfolio-category">Web App and Data Visualization</p>
+      <div className="tech-tags">
+        <span>
+          <FontAwesomeIcon icon={faReact} />
+          React
+        </span>
+        <span>
+          <FontAwesomeIcon icon={faChartLine} />
+          Chart.js
+        </span>
+        <span>
+          <FontAwesomeIcon icon={faCss3} />
+          CSS3
+        </span>
+      </div>
+      <p className="portfolio-description">
+        Real-time data visualization dashboard with interactive charts, custom
+        reporting, and predictive analytics.
+      </p>
+    </div>,
+    <div className="portfolio-card">
+      <div className="portfolio-image">
+        <img src="https://via.placeholder.com/600" alt="Personal Portfolio" />
+        <div className="portfolio-overlay">
+          <div className="dual-buttons">
+            <a
+              href="https://analytics-dashboard-clarence.vercel.app/"
+              className="portfolio-btn"
+            >
+              <FontAwesomeIcon icon={faUpRightFromSquare} /> Live Demo
+            </a>
+            <a href="#" className="portfolio-btn secondary">
+              <FontAwesomeIcon icon={faGithub} /> Source Code
+            </a>
+          </div>
+        </div>
+      </div>
+      <h3>Personal Portfolio</h3>
+      <p className="portfolio-category">Web Design • Portfolio</p>
+      <div className="tech-tags">
+        <span>
+          <FontAwesomeIcon icon={faReact} />
+          React
+        </span>
+        <span>
+          <FontAwesomeIcon icon={faChartLine} />
+          Chart.js
+        </span>
+        <span>
+          <FontAwesomeIcon icon={faCss3} />
+          CSS3
+        </span>
+      </div>
+      <p className="portfolio-description">
+        Modern portfolio website showcasing projects, skills, and services with
+        smooth animations and responsive design.
+      </p>
+    </div>,
+  ];
+
+  // Testimonials items
+  const testimonialsItems = [
+    <div className="testimonial-card">
+      <FontAwesomeIcon icon={faQuoteLeft} className="quote-icon" />
+      <p className="testimonial-text">
+        Clarence delivered an outstanding e-commerce platform ahead of schedule.
+        Professional, creative, and highly skilled.
+      </p>
+      <div className="testimonial-author">
+        <strong>— Sarah J., CEO at Fashion Inc.</strong>
+      </div>
+    </div>,
+    <div className="testimonial-card">
+      <FontAwesomeIcon icon={faQuoteLeft} className="quote-icon" />
+      <p className="testimonial-text">
+        His AI expertise transformed our app into something truly innovative.
+        Highly recommend!
+      </p>
+      <div className="testimonial-author">
+        <strong>— Mike T., Tech Lead</strong>
+      </div>
+    </div>,
+    <div className="testimonial-card">
+      <FontAwesomeIcon icon={faQuoteLeft} className="quote-icon" />
+      <p className="testimonial-text">
+        Exceptional work on our dashboard—fast, reliable, and user-friendly.
+      </p>
+      <div className="testimonial-author">
+        <strong>— Emma R., Product Manager</strong>
+      </div>
+    </div>,
+  ];
+
+  // Blog items
+  const blogItems = [
+    <div className="blog-card">
+      <div className="blog-image">
+        <img
+          src="https://via.placeholder.com/540x300?text=AI+Future"
+          alt="AI Blog"
+        />
+      </div>
+      <h3>The Future of AI in Web Development</h3>
+      <p className="blog-excerpt">
+        Exploring how AI is revolutionizing full-stack development in 2025 and
+        beyond.
+      </p>
+      <a
+        href="https://medium.com/@yourusername/ai-web-dev"
+        target="_blank"
+        className="read-more"
+      >
+        Read on Medium →
+      </a>
+    </div>,
+    <div className="blog-card">
+      <div className="blog-image">
+        <img
+          src="https://via.placeholder.com/540x300?text=Cloud+Arch"
+          alt="Cloud Blog"
+        />
+      </div>
+      <h3>Scalable Cloud Architectures</h3>
+      <p className="blog-excerpt">
+        Best practices for building resilient systems with AWS and modern tools.
+      </p>
+      <a
+        href="https://medium.com/@yourusername/cloud-arch"
+        target="_blank"
+        className="read-more"
+      >
+        Read on Medium →
+      </a>
+    </div>,
+    <div className="blog-card">
+      <div className="blog-image">
+        <img
+          src="https://via.placeholder.com/540x300?text=UX+Trends"
+          alt="UX Blog"
+        />
+      </div>
+      <h3>Emerging UX Trends in 2025</h3>
+      <p className="blog-excerpt">
+        How user research and accessibility are shaping the next generation of
+        apps.
+      </p>
+      <a
+        href="https://medium.com/@yourusername/ux-trends-2025"
+        target="_blank"
+        className="read-more"
+      >
+        Read on Medium →
+      </a>
+    </div>,
+  ];
 
   return (
     <div className="protagonist">
-      {/* Scroll Progress Bar (Managed by your animation script) */}
+      {/* Scroll Progress Bar */}
       <div id="scroll-progress"></div>
 
-      {/* ============ HEADER ============ */}
+      {/* Header */}
       <header className="main-header">
         <nav className="navbar">
           <div className="nav-brand">
@@ -119,15 +592,15 @@ export default function App() {
               </a>
             </li>
           </ul>
-          {/* THEME TOGGLE SWITCH */}
           <button className="theme-toggle-btn" aria-label="Toggle Theme">
             <FontAwesomeIcon icon={faSun} className="sun-icon" />
             <FontAwesomeIcon icon={faMoon} className="moon-icon" />
           </button>
         </nav>
       </header>
+
       <main id="main-content">
-        {/* ============ HERO ============ */}
+        {/* Hero */}
         <section id="home" className="hero-section">
           <div className="container1">
             <div className="hero-content">
@@ -142,6 +615,13 @@ export default function App() {
               <h2 id="tagline-text" className="tagline">
                 AI Solutions Architect & Technical Strategist
               </h2>
+              <p id="welcomeline-text" className="hero-description">
+                I design and deploy intelligent, full-stack solutions built for
+                technical scale and reliability.
+                <br /> My expertise is rooted in rigorous AI research and
+                translating complex innovations into compelling, accessible
+                narratives.
+              </p>
               <p id="welcomeline-text" className="hero-description">
                 I design and deploy intelligent, full-stack solutions built for
                 technical scale and reliability.
@@ -174,7 +654,8 @@ export default function App() {
             </div>
           </div>
         </section>
-        {/*-- ============ ABOUT SECTION ============ */}
+
+        {/* About */}
         <section id="about" className="about-section">
           <div className="container1">
             <h2 className="section-title">About Me</h2>
@@ -190,7 +671,6 @@ export default function App() {
                   applications from concept to deployment.
                 </p>
               </div>
-
               <div className="about-card">
                 <div className="about-icon">
                   <FontAwesomeIcon icon={faPenFancy} />
@@ -203,7 +683,6 @@ export default function App() {
                   documentation.
                 </p>
               </div>
-
               <div className="about-card">
                 <div className="about-icon">
                   <FontAwesomeIcon icon={faRocket} />
@@ -215,7 +694,6 @@ export default function App() {
                   long-term value.
                 </p>
               </div>
-
               <div className="about-card">
                 <div className="about-icon">
                   <FontAwesomeIcon icon={faHandshake} />
@@ -254,80 +732,18 @@ export default function App() {
           </div>
         </section>
 
-        {/* ============ ACHIEVEMENTS SECTION ============ */}
+        {/* Achievements */}
         <section id="achievements" className="achievements-section">
           <div className="container1">
             <h2 className="section-title">Achievements & Certifications</h2>
-            <div className="achievements-grid">
-              <div className="achievements-card">
-                <div className="achievements-image">
-                  <img src="/cert-aws.avif" alt="AWS Certification" />
-                  <div className="achievements-overlay">
-                    <a href="#" className="achievements-btn">
-                      View Certificate
-                    </a>
-                  </div>
-                </div>
-                <h3>AWS Certified Solutions Architect</h3>
-                <p className="achievements-description">
-                  Validated expertise in designing and deploying scalable cloud
-                  applications.
-                </p>
-              </div>
-
-              <div className="achievements-card">
-                <div className="achievements-image">
-                  <img src="/cert-react.avif" alt="React Certification" />
-                  <div className="achievements-overlay">
-                    <a href="#" className="achievements-btn">
-                      View Certificate
-                    </a>
-                  </div>
-                </div>
-                <h3>React Developer Certification</h3>
-                <p className="achievements-description">
-                  Demonstrated proficiency in modern React development.
-                </p>
-              </div>
-
-              <div className="achievements-card">
-                <div className="achievements-image">
-                  <img src="/cert-react.avif" alt="React Certification" />
-                  <div className="achievements-overlay">
-                    <a href="#" className="achievements-btn">
-                      View Certificate
-                    </a>
-                  </div>
-                </div>
-                <h3>Responsive Web Design Certification</h3>
-                <p className="achievements-description">
-                  Teaches the fundamentals of HTML and CSS, including modern
-                  layout, design, accessibility, and responsive web development.
-                  Also helps in building practical projects and gaining the
-                  skills to create professional, user-friendly webpages.
-                </p>
-              </div>
-
-              <div className="achievements-card">
-                <div className="achievements-image">
-                  <img src="/cert-react.avif" alt="React Certification" />
-                  <div className="achievements-overlay">
-                    <a href="#" className="achievements-btn">
-                      View Certificate
-                    </a>
-                  </div>
-                </div>
-                <h3>JavaScript Certification</h3>
-                <p className="achievements-description">
-                  Experienced and well versed in use of JavaScript and
-                  application of its syntax.
-                </p>
-              </div>
-            </div>
+            <Carousel
+              items={achievementsItems}
+              slideCount={achievementsItems.length}
+            />
           </div>
         </section>
 
-        {/* ============ EXPERIENCE SECTION ============ */}
+        {/* Experience */}
         <section id="experience" className="experience-section">
           <div className="container1">
             <h2 className="section-title">Professional Experience</h2>
@@ -347,7 +763,6 @@ export default function App() {
                   PostgreSQL. Implemented CI/CD and cloud deployment.
                 </p>
               </div>
-
               <div className="experience-card">
                 <div className="experience-image">
                   <img src="/exp-mobile.avif" alt="Mobile App Project" />
@@ -367,149 +782,37 @@ export default function App() {
           </div>
         </section>
 
-        {/* ============ PORTFOLIO SECTION ============ */}
+        {/* Portfolio */}
         <section id="portfolio" className="portfolio-section">
           <div className="container1">
             <h2 className="section-title">Featured Projects</h2>
-            <div className="portfolio-grid">
-              <div className="portfolio-card">
-                <div className="portfolio-image">
-                  <img
-                    src="/chy_wears.avif"
-                    alt="Chy-Wears E-Commerce Website"
-                    width="3840"
-                    height="2160"
-                    loading="lazy"
-                    decoding="async"
-                    className="portfolio-img"
-                  />
-                  <div className="portfolio-overlay">
-                    <a href="#" className="portfolio-btn">
-                      View Project
-                    </a>
-                  </div>
-                </div>
-                <h3>Chy-Wears E-Commerce</h3>
-                <p className="portfolio-category">
-                  Web Development and E-Commerce
-                </p>
-                <p className="portfolio-description">
-                  A modern e-commerce platform for fashion retail with inventory
-                  management, payment integration, and user analytics.
-                </p>
-              </div>
-
-              <div className="portfolio-card">
-                <div className="portfolio-image">
-                  <img src="https://via.placeholder.com" alt="Unit Converter" />
-                  <div className="portfolio-overlay">
-                    <a href="#" className="portfolio-btn">
-                      View Project
-                    </a>
-                  </div>
-                </div>
-                <h3>Unit Converter App</h3>
-                <p className="portfolio-category">Mobile App and Utility</p>
-                <p className="portfolio-description">
-                  Cross-platform mobile app for unit conversions. Fast,
-                  offline-capable, with beautiful UI and real-time calculations.
-                </p>
-              </div>
-
-              <div className="portfolio-card">
-                <div className="portfolio-image">
-                  <img
-                    src="https://via.placeholder.com"
-                    alt="Advanced Calculator"
-                  />
-                  <div className="portfolio-overlay">
-                    <a href="#" className="portfolio-btn">
-                      View Project
-                    </a>
-                  </div>
-                </div>
-                <h3>Advanced Calculator</h3>
-                <p className="portfolio-category">Web App and Productivity</p>
-                <p className="portfolio-description">
-                  Scientific calculator supporting complex equations, graphing
-                  functions, and a persistent calculation history log.
-                </p>
-              </div>
-
-              <div className="portfolio-card">
-                <div className="portfolio-image">
-                  <img
-                    src="/fizzlin-beverage.avif"
-                    alt="Fizzlin Beverage Brand Website"
-                    width="3840"
-                    height="2160"
-                    loading="lazy"
-                    decoding="async"
-                    className="portfolio-img"
-                  />
-                  <div className="portfolio-overlay">
-                    <a href="#" className="portfolio-btn">
-                      View Project
-                    </a>
-                  </div>
-                </div>
-                <h3>Fizzlin Beverage Brand</h3>
-                <p className="portfolio-category">Web Design and Branding</p>
-                <p className="portfolio-description">
-                  Brand website with interactive product showcase, e-commerce
-                  integration, and engaging multimedia content.
-                </p>
-              </div>
-
-              <div className="portfolio-card">
-                <div className="portfolio-image">
-                  <img
-                    src="/analytics_dashboard.avif"
-                    alt="Analytics Dashboard"
-                  />
-                  <div className="portfolio-overlay">
-                    <a
-                      href="https://analytics-dashboard-clarence.vercel.app/"
-                      className="portfolio-btn"
-                    >
-                      View Project
-                    </a>
-                  </div>
-                </div>
-                <h3>Analytics Dashboard</h3>
-                <p className="portfolio-category">
-                  Web App and Data Visualization
-                </p>
-                <p className="portfolio-description">
-                  Real-time data visualization dashboard with interactive
-                  charts, custom reporting, and predictive analytics.
-                </p>
-              </div>
-
-              <div className="portfolio-card">
-                <div className="portfolio-image">
-                  <img src="https://via.placeholder.com" alt="Portfolio" />
-                  <div className="portfolio-overlay">
-                    <a
-                      href="https://analytics-dashboard-clarence.vercel.app/"
-                      className="portfolio-btn"
-                    >
-                      View Project
-                    </a>
-                  </div>
-                </div>
-                <h3>Personal Portfolio</h3>
-                <p className="portfolio-category">Web Design â€¢ Portfolio</p>
-                <p className="portfolio-description">
-                  Modern portfolio website showcasing projects, skills, and
-                  services with smooth animations and responsive design.
-                </p>
-              </div>
-            </div>
+            <Carousel
+              items={portfolioItems}
+              slideCount={portfolioItems.length}
+            />
           </div>
         </section>
 
-        {/* ============ SKILLS SECTION ============ */}
+        {/* Blog */}
+        <section id="blog" className="blog-section">
+          <div className="container1">
+            <h2 className="section-title">Recent Blog Posts</h2>
+            <Carousel items={blogItems} slideCount={blogItems.length} />
+          </div>
+        </section>
+
+        {/* Testimonials */}
+        <section id="testimonials" className="testimonials-section">
+          <div className="container1">
+            <h2 className="section-title">What Clients Say</h2>
+            <Carousel
+              items={testimonialsItems}
+              slideCount={testimonialsItems.length}
+            />
+          </div>
+        </section>
+
+        {/* Skills */}
         <section id="skills" className="skills-section">
           <div className="container1">
             <h2 className="section-title">Technical Skills</h2>
@@ -621,7 +924,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* ============ STATS SECTION ============ */}
+        {/* Stats */}
         <section className="stats-section">
           <div className="container1">
             <div className="stats-grid">
@@ -645,7 +948,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* ============ CONTACT SECTION ============ */}
+        {/* Contact */}
         <section id="contact" className="contact-section">
           <div className="container1">
             <h2 className="section-title">Let's Work Together</h2>
@@ -653,11 +956,9 @@ export default function App() {
               Have a project in mind? Let's discuss how I can help bring your
               vision to life.
             </p>
-
             <div className="contact-content">
               <div className="contact-info">
                 <h3>Get In Touch</h3>
-                {/* Pass icon objects, not strings */}
                 <ContactInfoItem
                   icon={faEnvelope}
                   label="Email"
@@ -676,8 +977,6 @@ export default function App() {
                   value="Lagos, Nigeria"
                 />
               </div>
-
-              {/* The 'contact-form' class is used by your initContactForm utility script */}
               <form className="contact-form">
                 <div className="form-group">
                   <input
@@ -701,7 +1000,7 @@ export default function App() {
                     placeholder="Your Message"
                     rows="5"
                     required
-                  ></textarea>
+                  />
                 </div>
                 <button type="submit" className="form-submit">
                   Send Message
@@ -711,7 +1010,8 @@ export default function App() {
           </div>
         </section>
       </main>
-      {/* ============ FOOTER ============ */}
+
+      {/* Footer */}
       <div className="antagonist">
         <footer className="footer">
           <div className="footer-content">
@@ -739,7 +1039,7 @@ export default function App() {
                 >
                   <FontAwesomeIcon icon={faOrcid} />
                 </a>
-                <a href="#">
+                <a href="#" title="Upwork">
                   <FontAwesomeIcon icon={faUpwork} />
                 </a>
               </div>
@@ -747,12 +1047,17 @@ export default function App() {
           </div>
           <div className="footer-bottom">
             <p>
-              &copy; 2025 Clarence. All rights reserved. | Crafted with{" "}
+              &copy; 2025 Clarence. All rights reserved. | Crafted with
               <FontAwesomeIcon icon={faHeart} /> by Clarence
             </p>
           </div>
         </footer>
       </div>
+
+      {/* Back to Top Button */}
+      <button id="back-to-top" className="back-to-top" aria-label="Back to Top">
+        <FontAwesomeIcon icon={faArrowUp} />
+      </button>
     </div>
   );
 }
