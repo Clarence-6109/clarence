@@ -9,6 +9,7 @@ import {
   faHtml5,
   faJsSquare,
   faLinux,
+  faMedium,
   faNodeJs,
   faOrcid,
   faPython,
@@ -57,6 +58,7 @@ import { useEffect, useRef, useState } from "react";
 import clarenceLogo from "./assets/clarence_logo.avif";
 import "./index.css";
 import { initPortfolio } from "./utils/initPortfolio";
+// Removed initSmoothScroll import since we're handling it inline
 config.autoAddCss = false;
 
 /**
@@ -148,18 +150,55 @@ function Carousel({ items, slideCount, autoPlayInterval = 6000 }) {
  */
 export default function App() {
   useEffect(() => {
+    // 1. Initialize portfolio utilities (typing, theme, etc.)
     initPortfolio();
 
-    // Back-to-top button logic
+    // 2. Mobile nav toggle (runs once here)
+    const navToggle = document.querySelector(".nav-toggle");
+    const navMenu = document.querySelector(".nav-menu");
+    if (navToggle && navMenu) {
+      navToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+        navToggle.classList.toggle("active");
+      });
+    }
+
+    // 3. Smooth scrolling and mobile menu close for nav links
+    const navLinks = document.querySelectorAll(".nav-link");
+    navLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute("href").substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: "smooth",
+          });
+        }
+        // Close mobile menu
+        navMenu.classList.remove("active");
+        navToggle.classList.remove("active");
+      });
+    });
+
+    // 4. Back-to-top button visibility
     const backToTop = document.getElementById("back-to-top");
     if (backToTop) {
-      window.addEventListener("scroll", () => {
+      const handleScroll = () => {
         if (window.scrollY > 500) {
           backToTop.classList.add("visible");
         } else {
           backToTop.classList.remove("visible");
         }
-      });
+      };
+
+      window.addEventListener("scroll", handleScroll);
+      handleScroll(); // Initial check
+
+      // Cleanup scroll listener
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
     }
   }, []);
 
@@ -460,6 +499,111 @@ export default function App() {
         smooth animations and responsive design.
       </p>
     </div>,
+    <div className="portfolio-card">
+      <div className="portfolio-image">
+        <img
+          src="/chess-game.avif"
+          alt="Chess Game"
+          className="portfolio-img"
+        />
+        <div className="portfolio-overlay">
+          <div className="dual-buttons">
+            <a href="#" className="portfolio-btn">
+              <FontAwesomeIcon icon={faUpRightFromSquare} /> Live Demo
+            </a>
+            <a href="#" className="portfolio-btn secondary">
+              <FontAwesomeIcon icon={faGithub} /> Source Code
+            </a>
+          </div>
+        </div>
+      </div>
+      <h3>Chess Game</h3>
+      <p className="portfolio-category">Game Development and Design</p>
+      <div className="tech-tags">
+        <span>
+          <FontAwesomeIcon icon={faReact} />
+          React
+        </span>
+        <span>
+          <FontAwesomeIcon icon={faCss3} />
+          CSS3
+        </span>
+      </div>
+      <p className="portfolio-description">
+        An interactive chess game built with React and CSS, featuring a
+        responsive design and smooth gameplay.
+      </p>
+    </div>,
+    <div className="portfolio-card">
+      <div className="portfolio-image">
+        <img
+          src="/tic-tac-toe-game.avif"
+          alt="Tic-Tac-Toe Game"
+          className="portfolio-img"
+        />
+        <div className="portfolio-overlay">
+          <div className="dual-buttons">
+            <a href="#" className="portfolio-btn">
+              <FontAwesomeIcon icon={faUpRightFromSquare} /> Live Demo
+            </a>
+            <a href="#" className="portfolio-btn secondary">
+              <FontAwesomeIcon icon={faGithub} /> Source Code
+            </a>
+          </div>
+        </div>
+      </div>
+      <h3>Tic-Tac-Toe Game</h3>
+      <p className="portfolio-category">Game Development and Design</p>
+      <div className="tech-tags">
+        <span>
+          <FontAwesomeIcon icon={faReact} />
+          React
+        </span>
+        <span>
+          <FontAwesomeIcon icon={faCss3} />
+          CSS3
+        </span>
+      </div>
+      <p className="portfolio-description">
+        An interactive tic-tac-toe game built with React and CSS, featuring a
+        responsive design and smooth gameplay.
+      </p>
+    </div>,
+    <div className="portfolio-card">
+      <div className="portfolio-image">
+        <img
+          src="/to-do-list.avif"
+          alt="To-Do List"
+          className="portfolio-img"
+        />
+        <div className="portfolio-overlay">
+          <div className="dual-buttons">
+            <a href="#" className="portfolio-btn">
+              <FontAwesomeIcon icon={faUpRightFromSquare} /> Live Demo
+            </a>
+            <a href="#" className="portfolio-btn secondary">
+              <FontAwesomeIcon icon={faGithub} /> Source Code
+            </a>
+          </div>
+        </div>
+      </div>
+      <h3>To-Do List</h3>
+      <p className="portfolio-category">Productivity and Task Management</p>
+      <div className="tech-tags">
+        <span>
+          <FontAwesomeIcon icon={faReact} />
+          React
+        </span>
+        <span>
+          <FontAwesomeIcon icon={faCss3} />
+          CSS3
+        </span>
+      </div>
+      <p className="portfolio-description">
+        A simple and elegant to-do list application built with React and CSS,
+        featuring a clean interface and intuitive task management.
+      </p>
+    </div>,
   ];
 
   // Testimonials items
@@ -495,7 +639,7 @@ export default function App() {
     </div>,
   ];
 
-  // Blog items
+  // Blog items (updated to match achievements/portfolio structure with overlay)
   const blogItems = [
     <div className="blog-card">
       <div className="blog-image">
@@ -503,19 +647,22 @@ export default function App() {
           src="https://via.placeholder.com/540x300?text=AI+Future"
           alt="AI Blog"
         />
+        <div className="blog-overlay">
+          <a
+            href="https://medium.com/@yourusername/ai-web-dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="blog-btn"
+          >
+            Read on Medium
+          </a>
+        </div>
       </div>
       <h3>The Future of AI in Web Development</h3>
-      <p className="blog-excerpt">
+      <p className="blog-description">
         Exploring how AI is revolutionizing full-stack development in 2025 and
         beyond.
       </p>
-      <a
-        href="https://medium.com/@yourusername/ai-web-dev"
-        target="_blank"
-        className="read-more"
-      >
-        Read on Medium →
-      </a>
     </div>,
     <div className="blog-card">
       <div className="blog-image">
@@ -523,38 +670,41 @@ export default function App() {
           src="https://via.placeholder.com/540x300?text=Cloud+Arch"
           alt="Cloud Blog"
         />
+        <div className="blog-overlay">
+          <a
+            href="https://medium.com/@yourusername/cloud-arch"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="blog-btn"
+          >
+            Read on Medium
+          </a>
+        </div>
       </div>
       <h3>Scalable Cloud Architectures</h3>
-      <p className="blog-excerpt">
+      <p className="blog-description">
         Best practices for building resilient systems with AWS and modern tools.
       </p>
-      <a
-        href="https://medium.com/@yourusername/cloud-arch"
-        target="_blank"
-        className="read-more"
-      >
-        Read on Medium →
-      </a>
     </div>,
     <div className="blog-card">
       <div className="blog-image">
-        <img
-          src="https://via.placeholder.com/540x300?text=UX+Trends"
-          alt="UX Blog"
-        />
+        <img src="emerging_ux.avif" alt="UX Blog" />
+        <div className="blog-overlay">
+          <a
+            href="https://medium.com/@chinemeremmadu.frelan/emerging-ux-trends-in-2025-e345af5ed1fa"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="blog-btn"
+          >
+            Read on Medium
+          </a>
+        </div>
       </div>
       <h3>Emerging UX Trends in 2025</h3>
-      <p className="blog-excerpt">
+      <p className="blog-description">
         How user research and accessibility are shaping the next generation of
         apps.
       </p>
-      <a
-        href="https://medium.com/@yourusername/ux-trends-2025"
-        target="_blank"
-        className="read-more"
-      >
-        Read on Medium →
-      </a>
     </div>,
   ];
 
@@ -587,6 +737,16 @@ export default function App() {
               </a>
             </li>
             <li>
+              <a href="#achievements" className="nav-link">
+                Achievements
+              </a>
+            </li>
+            <li>
+              <a href="#experience" className="nav-link">
+                Experience
+              </a>
+            </li>
+            <li>
               <a href="#contact" className="nav-link">
                 Contact
               </a>
@@ -596,6 +756,11 @@ export default function App() {
             <FontAwesomeIcon icon={faSun} className="sun-icon" />
             <FontAwesomeIcon icon={faMoon} className="moon-icon" />
           </button>
+          <div className="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </nav>
       </header>
 
@@ -615,13 +780,6 @@ export default function App() {
               <h2 id="tagline-text" className="tagline">
                 AI Solutions Architect & Technical Strategist
               </h2>
-              <p id="welcomeline-text" className="hero-description">
-                I design and deploy intelligent, full-stack solutions built for
-                technical scale and reliability.
-                <br /> My expertise is rooted in rigorous AI research and
-                translating complex innovations into compelling, accessible
-                narratives.
-              </p>
               <p id="welcomeline-text" className="hero-description">
                 I design and deploy intelligent, full-stack solutions built for
                 technical scale and reliability.
@@ -1042,6 +1200,12 @@ export default function App() {
                 <a href="#" title="Upwork">
                   <FontAwesomeIcon icon={faUpwork} />
                 </a>
+                <a
+                  href="https://medium.com/@chinemeremmadu.frelan"
+                  title="Medium"
+                >
+                  <FontAwesomeIcon icon={faMedium} />
+                </a>
               </div>
             </div>
           </div>
@@ -1055,7 +1219,12 @@ export default function App() {
       </div>
 
       {/* Back to Top Button */}
-      <button id="back-to-top" className="back-to-top" aria-label="Back to Top">
+      <button
+        id="back-to-top"
+        className="back-to-top"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        aria-label="Back to top"
+      >
         <FontAwesomeIcon icon={faArrowUp} />
       </button>
     </div>

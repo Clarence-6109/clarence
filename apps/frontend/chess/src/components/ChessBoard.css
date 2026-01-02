@@ -1,0 +1,230 @@
+.menu-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 20px;
+}
+
+.menu-card {
+  background-color: white;
+  border-radius: clamp(8px, 2vw, 15px);
+  padding: clamp(20px, 4vw, 50px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  width: 100%;
+  max-width: clamp(300px, 90vw, 500px);
+}
+
+.title {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  margin-bottom: clamp(15px, 3vw, 30px);
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+.menu-button {
+  display: block;
+  width: 100%;
+  padding: clamp(12px, 2.5vw, 18px) clamp(20px, 4vw, 40px);
+  margin: clamp(8px, 1.5vw, 12px) 0;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: clamp(5px, 1vw, 8px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.menu-button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.menu-button:active {
+  transform: translateY(0);
+}
+
+.game-container {
+  display: flex;
+  gap: clamp(15px, 3vw, 30px);
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: clamp(10px, 2vw, 20px);
+}
+
+.board-container {
+  background-color: white;
+  padding: clamp(8px, 1.5vw, 25px);
+  border-radius: clamp(8px, 1.5vw, 12px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  max-width: min(90vw, 800px);
+}
+
+.chess-board {
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  border: clamp(2px, 0.3vw, 4px) solid #333;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 100%;
+  max-width: min(90vw, 90vh, 700px);
+  aspect-ratio: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.board-row {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  width: 100%;
+}
+
+/* Phone Sizes (portrait) */
+@media (max-width: 480px) {
+  .game-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .menu-card {
+    padding: 20px;
+  }
+
+  .board-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 8px;
+  }
+
+  .chess-board {
+    max-width: min(95vw, 95vh);
+  }
+}
+
+/* Phone Sizes (landscape) and small tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .game-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .board-container {
+    max-width: min(60vw, 500px);
+  }
+
+  .chess-board {
+    max-width: min(60vw, 60vh, 500px);
+  }
+}
+
+/* Tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .game-container {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .board-container {
+    max-width: min(55vw, 600px);
+  }
+
+  .chess-board {
+    max-width: min(55vw, 70vh, 600px);
+  }
+}
+
+/* Laptops */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .game-container {
+    flex-direction: row;
+    gap: 25px;
+  }
+
+  .board-container {
+    max-width: 650px;
+  }
+
+  .chess-board {
+    max-width: min(50vw, 70vh, 650px);
+  }
+}
+
+/* Large Laptops and Small TVs */
+@media (min-width: 1441px) and (max-width: 1920px) {
+  .game-container {
+    gap: 30px;
+  }
+
+  .board-container {
+    max-width: 700px;
+  }
+
+  .chess-board {
+    max-width: min(45vw, 75vh, 700px);
+  }
+}
+
+/* Large TVs and Monitors */
+@media (min-width: 1921px) {
+  .game-container {
+    gap: 40px;
+    max-width: 2000px;
+  }
+
+  .board-container {
+    max-width: 800px;
+  }
+
+  .chess-board {
+    max-width: min(40vw, 80vh, 800px);
+  }
+
+  .title {
+    font-size: 3.5rem;
+  }
+}
+
+/* Ultra-wide monitors */
+@media (min-aspect-ratio: 21/9) {
+  .game-container {
+    gap: 50px;
+  }
+
+  .board-container {
+    max-width: 700px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+  .menu-card {
+    padding: 15px;
+  }
+
+  .board-container {
+    padding: 5px;
+  }
+}
+
+/* Landscape orientation for phones */
+@media (max-height: 500px) and (orientation: landscape) {
+  .game-container {
+    flex-direction: row;
+  }
+
+  .chess-board {
+    max-width: min(45vw, 85vh);
+  }
+}

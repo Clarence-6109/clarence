@@ -1,5 +1,5 @@
 // src/utils/animations.js
-export function typeWriter(element, text, speed = 50, callback) {
+export function typeWriter(element, text, speed = 500, callback) {
   if (!element || !text) {
     callback?.();
     return;

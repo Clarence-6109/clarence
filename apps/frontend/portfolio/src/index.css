@@ -75,6 +75,11 @@ body {
     color var(--transition-medium);
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
 html,
 body {
   height: 100%;
@@ -690,7 +695,7 @@ section {
 
 .achievements-card:hover {
   transform: translateY(-12px);
-  box-shadow: 0 20px 50px rgba(0, 188, 212, 0.15);
+  border-color: var(--accent-color);
 }
 
 .achievements-image {
@@ -804,7 +809,7 @@ section {
 
 .experience-card:hover {
   transform: translateY(-12px);
-  box-shadow: 0 20px 50px rgba(0, 188, 212, 0.15);
+  border-color: var(--accent-color);
 }
 
 .experience-image {
@@ -918,7 +923,7 @@ section {
 
 .portfolio-card:hover {
   transform: translateY(-12px);
-  box-shadow: 0 20px 50px rgba(0, 188, 212, 0.15);
+  border-color: var(--accent-color);
 }
 
 .portfolio-image {
@@ -995,6 +1000,104 @@ section {
 }
 
 .portfolio-description {
+  padding: 0 20px 20px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* ============ BLOG SECTION ============ */
+.blog-section {
+  background: linear-gradient(
+    180deg,
+    rgba(26, 26, 26, 0.5),
+    rgba(10, 10, 10, 0.5)
+  );
+}
+
+.blog-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(0, 0, 0, 0.1)
+  );
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  transition: transform var(--transition-medium),
+    box-shadow var(--transition-medium);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.blog-card:hover {
+  transform: translateY(-12px);
+  border-color: var(--accent-color);
+}
+
+.blog-image {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+.blog-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-medium);
+}
+
+.blog-card:hover .blog-image img {
+  transform: scale(1.08);
+}
+
+.blog-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 188, 212, 0.3),
+    rgba(124, 77, 255, 0.3)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-medium);
+}
+
+.blog-card:hover .blog-overlay {
+  opacity: 1;
+}
+
+.blog-btn {
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-2));
+  color: var(--btn-text);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transition: transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.blog-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 188, 212, 0.4);
+}
+
+.blog-card > h3 {
+  padding: 20px 20px 8px;
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.blog-description {
   padding: 0 20px 20px;
   color: var(--muted);
   font-size: 0.95rem;
@@ -1752,7 +1855,8 @@ section {
   }
 
   .achievements-card,
-  .portfolio-card {
+  .portfolio-card,
+  .blog-card {
     max-width: 420px;
   }
 
@@ -1813,17 +1917,17 @@ section {
   );
   border-radius: var(--card-radius);
   overflow: hidden;
-  transition: transform 0.4s ease;
+  transition: transform var(--transition-medium),
+    border-color var(--transition-medium);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  perspective: 1000px;
 }
 
 .achievements-card:hover,
 .portfolio-card:hover,
 .testimonial-card:hover,
 .blog-card:hover {
-  transform: translateY(-12px) rotateY(5deg) rotateX(3deg);
-  box-shadow: 0 30px 60px rgba(0, 188, 212, 0.2);
+  transform: translateY(-12px);
+  border-color: var(--accent-color);
 }
 
 /* Dual buttons in portfolio overlay */
@@ -1884,29 +1988,6 @@ section {
 .testimonial-author {
   color: var(--accent-color);
   margin-top: 15px;
-}
-
-/* Blog card */
-.blog-card {
-  padding: 40px;
-  justify-content: center;
-  text-align: center;
-  gap: 20px;
-}
-
-.blog-card h3 {
-  font-size: 1.5rem;
-}
-
-.blog-excerpt {
-  color: var(--muted);
-}
-
-.read-more-link {
-  color: var(--accent-color);
-  font-weight: 600;
-  margin-top: 10px;
-  display: inline-block;
 }
 
 /* Back-to-top */
@@ -2046,4 +2127,16 @@ body::after {
   transform: translate(-50%, -50%);
   left: var(--mouse-x, 0);
   top: var(--mouse-y, 0);
+}
+.nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+.nav-menu.active {
+  display: flex !important;
 }

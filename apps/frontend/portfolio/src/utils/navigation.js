@@ -1,39 +1,13 @@
-// src/utils/navigation.js
-import { dom } from "./domSelectors";
-import { throttle } from "./utils";
-
-export function initNavigation() {
-  const { navToggle, navMenu, navLinks, mainHeader } = dom;
-
-  navToggle?.addEventListener("click", () => {
-    navMenu?.classList.toggle("active");
-    navToggle.classList.toggle("active");
-  });
-
-  navLinks.forEach((link) =>
-    link.addEventListener("click", () => {
-      navMenu?.classList.remove("active");
-      navToggle?.classList.remove("active");
-    })
-  );
-
-  window.addEventListener("scroll", () => {
-    if (!mainHeader) return;
-    mainHeader.classList.toggle("scrolled", window.scrollY > 50);
-  });
-
-  window.addEventListener("scroll", throttle(updateActiveNavLink, 150));
-  document.addEventListener("DOMContentLoaded", updateActiveNavLink);
-}
-
-function updateActiveNavLink() {
-  const sections = document.querySelectorAll("section[id]");
-  let current = "";
-  sections.forEach((section) => {
-    const top = section.offsetTop;
-    if (window.scrollY >= top - 120) current = section.id;
-  });
-  dom.navLinks.forEach((link) =>
-    link.classList.toggle("active", link.getAttribute("href") === `#${current}`)
-  );
-}
+// Copyright 2025 HomePC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     https://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
