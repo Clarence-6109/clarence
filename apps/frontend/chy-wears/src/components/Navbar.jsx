@@ -1,105 +1,74 @@
-// Navbar Component
+import { Heart, Menu, Search, ShoppingCart, User, X } from "lucide-react";
+import { useState } from "react";
+import "./Navbar.css";
+
 const Navbar = ({ user, cartCount, onLogout }) => {
   const [mobileMenu, setMobileMenu] = useState(false);
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-pink-600">Chy-Wears</h1>
+    <nav className="navbar">
+      <div className="navbar-container">
+        <div className="navbar-content">
+          <div className="navbar-brand">
+            <h1 className="brand-name">Chy-Wears</h1>
           </div>
 
-          <div className="hidden md:flex items-center space-x-8">
-            <a
-              href="#home"
-              className="text-gray-700 hover:text-pink-600 transition"
-            >
+          <div className="navbar-links">
+            <a href="#home" className="nav-link">
               Home
             </a>
-            <a
-              href="#shop"
-              className="text-gray-700 hover:text-pink-600 transition"
-            >
+            <a href="#shop" className="nav-link">
               Shop
             </a>
-            <a
-              href="#about"
-              className="text-gray-700 hover:text-pink-600 transition"
-            >
+            <a href="#about" className="nav-link">
               About
             </a>
-            <a
-              href="#contact"
-              className="text-gray-700 hover:text-pink-600 transition"
-            >
+            <a href="#contact" className="nav-link">
               Contact
             </a>
           </div>
 
-          <div className="flex items-center space-x-4">
-            <button className="p-2 hover:bg-pink-50 rounded-full transition">
-              <Search className="w-5 h-5 text-gray-700" />
+          <div className="navbar-icons">
+            <button className="icon-button">
+              <Search size={20} />
             </button>
-            <button className="p-2 hover:bg-pink-50 rounded-full transition">
-              <Heart className="w-5 h-5 text-gray-700" />
+            <button className="icon-button">
+              <Heart size={20} />
             </button>
-            <button className="p-2 hover:bg-pink-50 rounded-full transition relative">
-              <ShoppingCart className="w-5 h-5 text-gray-700" />
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-pink-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                  {cartCount}
-                </span>
-              )}
+            <button className="icon-button cart-button">
+              <ShoppingCart size={20} />
+              {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
             </button>
-            <button
-              className="hidden md:block p-2 hover:bg-pink-50 rounded-full transition"
-              onClick={onLogout}
-            >
-              <User className="w-5 h-5 text-gray-700" />
+            <button className="icon-button user-button" onClick={onLogout}>
+              <User size={20} />
             </button>
             <button
-              className="md:hidden p-2"
+              className="mobile-menu-button"
               onClick={() => setMobileMenu(!mobileMenu)}
             >
-              {mobileMenu ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
+              {mobileMenu ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
       </div>
 
       {mobileMenu && (
-        <div className="md:hidden bg-white border-t">
-          <div className="px-4 py-4 space-y-3">
-            <a href="#home" className="block text-gray-700 hover:text-pink-600">
-              Home
-            </a>
-            <a href="#shop" className="block text-gray-700 hover:text-pink-600">
-              Shop
-            </a>
-            <a
-              href="#about"
-              className="block text-gray-700 hover:text-pink-600"
-            >
-              About
-            </a>
-            <a
-              href="#contact"
-              className="block text-gray-700 hover:text-pink-600"
-            >
-              Contact
-            </a>
-            <button
-              onClick={onLogout}
-              className="block w-full text-left text-gray-700 hover:text-pink-600"
-            >
-              Logout
-            </button>
-          </div>
+        <div className="mobile-menu">
+          <a href="#home" className="mobile-link">
+            Home
+          </a>
+          <a href="#shop" className="mobile-link">
+            Shop
+          </a>
+          <a href="#about" className="mobile-link">
+            About
+          </a>
+          <a href="#contact" className="mobile-link">
+            Contact
+          </a>
+          <button onClick={onLogout} className="mobile-link logout-link">
+            Logout
+          </button>
         </div>
       )}
     </nav>

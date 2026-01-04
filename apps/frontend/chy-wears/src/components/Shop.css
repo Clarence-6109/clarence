@@ -1,0 +1,131 @@
+/* ==================== Shop.css ==================== */
+.shop-container {
+  background: white;
+  padding: 120px 80px;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.shop-content {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.shop-title {
+  font-size: 4.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #1f2937;
+  margin-bottom: 60px;
+  letter-spacing: -1px;
+  word-wrap: break-word;
+}
+
+.category-filters {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 80px;
+  flex-wrap: wrap;
+}
+
+.filter-button {
+  padding: 18px 50px;
+  border: none;
+  border-radius: 15px;
+  font-weight: 600;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: #fce4ec;
+  color: #ec4899;
+}
+
+.filter-button:hover {
+  background: #fbcfe8;
+  transform: translateY(-3px);
+}
+
+.filter-button.active {
+  background: #ec4899;
+  color: white;
+  box-shadow: 0 8px 20px rgba(236, 72, 153, 0.4);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: 50px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .shop-container {
+    padding: 60px 20px;
+  }
+
+  .shop-title {
+    font-size: 2.5rem;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1600px) {
+  .shop-container {
+    padding: 150px 120px;
+  }
+
+  .shop-title {
+    font-size: 5.5rem;
+  }
+
+  .category-filters {
+    gap: 35px;
+  }
+
+  .filter-button {
+    padding: 22px 60px;
+    font-size: 1.4rem;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+    gap: 60px;
+  }
+}
+
+@media (min-width: 2000px) {
+  .shop-container {
+    padding: 180px 180px;
+    max-width: 2400px;
+    margin: 0 auto;
+  }
+
+  .shop-title {
+    font-size: 6.5rem;
+    margin-bottom: 80px;
+    letter-spacing: -2px;
+  }
+
+  .category-filters {
+    gap: 40px;
+    margin-bottom: 100px;
+  }
+
+  .filter-button {
+    padding: 25px 70px;
+    font-size: 1.6rem;
+    border-radius: 18px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(550px, 1fr));
+    gap: 80px;
+  }
+}

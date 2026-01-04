@@ -1,100 +1,60 @@
+import axios from "axios";
 import { useState } from "react";
-import api from "../api/api";
 
-function RecordForm({ recordTypes, onClose, onSaved }) {
-  const [form, setForm] = useState({
-    title: "",
-    amount: "",
-    date: "",
-    record_type_id: "",
-    notes: "",
-  });
-  const [error, setError] = useState("");
+const RecordForm = ({ userId, onRecordAdded }) => {
+  const [type, setType] = useState("income");
+  const [amount, setAmount] = useState("");
+  const [category, setCategory] = useState("");
+  const [date, setDate] = useState("");
 
-  const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-
-  const submit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
-
-    // Validation
-    if (!form.title || !form.amount || !form.date || !form.record_type_id) {
-      setError("Please fill in all required fields.");
-      return;
-    }
-
     try {
-      await api.post("/records", {
-        ...form,
-        amount: parseFloat(form.amount),
-        record_type_id: parseInt(form.record_type_id),
+      await axios.post("http://localhost:5000/api/finances", {
+        user_id: userId,
+        type,
+        amount,
+        category,
+        date,
       });
-      onSaved();
-      onClose();
+      onRecordAdded();
+      setAmount("");
+      setCategory("");
+      setDate("");
     } catch (err) {
-      console.error("Save record error:", err);
-      setError(
-        err.response?.data?.message ||
-          "Failed to save record. Please try again."
-      );
+      console.error(err);
     }
   };
 
   return (
-    <form
-      onSubmit={submit}
-      style={{ margin: "1rem 0", padding: "1rem", border: "1px solid #ccc" }}
-    >
-      {error && <p style={{ color: "red" }}>{error}</p>}
-
-      <input
-        name="title"
-        placeholder="Title"
-        value={form.title}
-        onChange={onChange}
-        required
-      />
-      <input
-        name="amount"
-        placeholder="Amount"
-        type="number"
-        value={form.amount}
-        onChange={onChange}
-        required
-      />
-      <input
-        name="date"
-        placeholder="Date"
-        type="date"
-        value={form.date}
-        onChange={onChange}
-        required
-      />
-      <select
-        name="record_type_id"
-        value={form.record_type_id}
-        onChange={onChange}
-        required
-      >
-        <option value="">Select type</option>
-        {recordTypes.map((rt) => (
-          <option key={rt.id} value={rt.id}>
-            {rt.name}
-          </option>
-        ))}
+    <form onSubmit={handleSubmit}>
+      <select value={type} onChange={(e) => setType(e.target.value)}>
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
       </select>
       <input
-        name="notes"
-        placeholder="Notes"
-        value={form.notes}
-        onChange={onChange}
+        type="number"
+        value={amount}
+        onChange={(e) => setAmount(e.target.value)}
+        placeholder="Amount"
+        required
       />
-      <button type="submit">Save</button>
-      <button type="button" onClick={onClose}>
-        Cancel
-      </button>
+      <input
+        type="text"
+        value={category}
+        onChange={(e) => setCategory(e.target.value)}
+        placeholder="Category"
+        required
+      />
+      <input
+        type="date"
+        value={date}
+        onChange={(e) => setDate(e.target.value)}
+        required
+      />
+      <button type="submit">Add Record</button>
     </form>
   );
-}
+};
 
 export default RecordForm;

@@ -1,5 +1,4 @@
-// Sample product data
-const products = [
+export const products = [
   {
     id: 1,
     name: "Elegant Pink Dress",
@@ -49,4 +48,3 @@ const products = [
     category: "Dresses",
   },
 ];
-export default products;

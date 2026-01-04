@@ -1,11 +1,11 @@
 import { useState } from "react";
-import Footer from "./components/Footer.jsx";
-import Home from "./components/Home.jsx";
-import Login from "./components/Login.jsx";
-import Navbar from "./components/Navbar.jsx";
-import Shop from "./components/Shop.jsx";
-import { ShoppingCart, User, Heart, Search, Menu, X } from "lucide-react";
-// Main App Component
+import "./App.css";
+import Footer from "./components/Footer";
+import Home from "./components/Home";
+import Login from "./components/Login";
+import Navbar from "./components/Navbar";
+import Shop from "./components/Shop";
+
 const App = () => {
   const [user, setUser] = useState(null);
   const [cart, setCart] = useState([]);
@@ -28,7 +28,7 @@ const App = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="app">
       <Navbar user={user} cartCount={cart.length} onLogout={handleLogout} />
       <Home />
       <Shop onAddToCart={handleAddToCart} />
