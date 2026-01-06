@@ -278,7 +278,7 @@ export default function App() {
         />
         <div className="portfolio-overlay">
           <div className="dual-buttons">
-            <a href="#" className="portfolio-btn">
+            <a href="https://chy-wears.vercel.app/" className="portfolio-btn">
               <FontAwesomeIcon icon={faUpRightFromSquare} /> Live Demo
             </a>
             <a href="#" className="portfolio-btn secondary">
@@ -310,7 +310,7 @@ export default function App() {
     </div>,
     <div className="portfolio-card">
       <div className="portfolio-image">
-        <img src="https://via.placeholder.com/600" alt="Unit Converter" />
+        <img src="/unit_converter.avif" alt="Unit Converter" />
         <div className="portfolio-overlay">
           <div className="dual-buttons">
             <a href="#" className="portfolio-btn">
@@ -346,7 +346,7 @@ export default function App() {
     <div className="portfolio-card">
       <div className="portfolio-image">
         <img
-          src="/ hyper_scientific_calculator.avif"
+          src="/hyper_scientific_calculator.avif"
           alt="Hyper Scientific Calculator"
         />
         <div className="portfolio-overlay">
@@ -463,13 +463,10 @@ export default function App() {
     </div>,
     <div className="portfolio-card">
       <div className="portfolio-image">
-        <img src="https://via.placeholder.com/600" alt="Personal Portfolio" />
+        <img src="/wealsh.avif" alt="Wealsh" />
         <div className="portfolio-overlay">
           <div className="dual-buttons">
-            <a
-              href="https://analytics-dashboard-clarence.vercel.app/"
-              className="portfolio-btn"
-            >
+            <a href="#" className="portfolio-btn">
               <FontAwesomeIcon icon={faUpRightFromSquare} /> Live Demo
             </a>
             <a href="#" className="portfolio-btn secondary">
@@ -478,8 +475,8 @@ export default function App() {
           </div>
         </div>
       </div>
-      <h3>Personal Portfolio</h3>
-      <p className="portfolio-category">Web Design • Portfolio</p>
+      <h3>Wealsh</h3>
+      <p className="portfolio-category">Web Design • Fintech</p>
       <div className="tech-tags">
         <span>
           <FontAwesomeIcon icon={faReact} />
@@ -495,14 +492,14 @@ export default function App() {
         </span>
       </div>
       <p className="portfolio-description">
-        Modern portfolio website showcasing projects, skills, and services with
-        smooth animations and responsive design.
+        A sleek fintech web application offering personal finance management,
+        budgeting tools, and investment tracking with a user-friendly interface.
       </p>
     </div>,
     <div className="portfolio-card">
       <div className="portfolio-image">
         <img
-          src="/chess-game.avif"
+          src="/chess_game.avif"
           alt="Chess Game"
           className="portfolio-img"
         />

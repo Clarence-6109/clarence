@@ -1,24 +1,20 @@
 {
   "name": "wealsh",
+  "private": true,
   "version": "1.0.0",
-  "description": "",
-  "main": "login.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
-    "@clarence/ui-core": "file:../../../packages/ui-core"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.1.0"
   },
   "devDependencies": {
-    "framer-motion": "^12.23.26",
-    "lucide-react": "^0.561.0",
-    "vite": "^7.3.0"
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.6"
   }
 }
