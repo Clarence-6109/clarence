@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "mobile",
-    "slug": "mobile",
+    "name": "flashlight-app",
+    "slug": "flashlight-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "mobile",
+    "scheme": "flashlightapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
