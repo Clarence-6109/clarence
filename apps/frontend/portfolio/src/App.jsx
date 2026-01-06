@@ -313,7 +313,10 @@ export default function App() {
         <img src="/unit_converter.avif" alt="Unit Converter" />
         <div className="portfolio-overlay">
           <div className="dual-buttons">
-            <a href="#" className="portfolio-btn">
+            <a
+              href="https://unit-converter-flax-alpha.vercel.app/"
+              className="portfolio-btn"
+            >
               <FontAwesomeIcon icon={faUpRightFromSquare} /> Live Demo
             </a>
             <a href="#" className="portfolio-btn secondary">
@@ -466,7 +469,7 @@ export default function App() {
         <img src="/wealsh.avif" alt="Wealsh" />
         <div className="portfolio-overlay">
           <div className="dual-buttons">
-            <a href="#" className="portfolio-btn">
+            <a href="https://wealsh.vercel.app/" className="portfolio-btn">
               <FontAwesomeIcon icon={faUpRightFromSquare} /> Live Demo
             </a>
             <a href="#" className="portfolio-btn secondary">
