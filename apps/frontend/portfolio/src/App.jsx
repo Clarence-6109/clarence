@@ -508,7 +508,10 @@ export default function App() {
         />
         <div className="portfolio-overlay">
           <div className="dual-buttons">
-            <a href="#" className="portfolio-btn">
+            <a
+              href="https://chess-game-blond-seven.vercel.app/"
+              className="portfolio-btn"
+            >
               <FontAwesomeIcon icon={faUpRightFromSquare} /> Live Demo
             </a>
             <a href="#" className="portfolio-btn secondary">
@@ -543,7 +546,10 @@ export default function App() {
         />
         <div className="portfolio-overlay">
           <div className="dual-buttons">
-            <a href="#" className="portfolio-btn">
+            <a
+              href="https://tic-tac-toe-tau-bay.vercel.app/"
+              className="portfolio-btn"
+            >
               <FontAwesomeIcon icon={faUpRightFromSquare} /> Live Demo
             </a>
             <a href="#" className="portfolio-btn secondary">
@@ -578,7 +584,10 @@ export default function App() {
         />
         <div className="portfolio-overlay">
           <div className="dual-buttons">
-            <a href="#" className="portfolio-btn">
+            <a
+              href="https://to-do-app-beryl-five.vercel.app/"
+              className="portfolio-btn"
+            >
               <FontAwesomeIcon icon={faUpRightFromSquare} /> Live Demo
             </a>
             <a href="#" className="portfolio-btn secondary">
