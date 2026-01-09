@@ -717,6 +717,185 @@ export default function App() {
     </div>,
   ];
 
+  // About items
+  const aboutItems = [
+    <div className="about-card">
+      <div className="about-icon">
+        <FontAwesomeIcon icon={faCode} />
+      </div>
+      <h3>Full-Stack Developer</h3>
+      <p>
+        Expert in modern web technologies including React, Vue, Node.js, and
+        cloud infrastructure. Building scalable applications from concept to
+        deployment.
+      </p>
+    </div>,
+    <div className="about-card">
+      <div className="about-icon">
+        <FontAwesomeIcon icon={faPenFancy} />
+      </div>
+      <h3>Research & Analysis</h3>
+      <p>
+        I perform rigorous, evidence-based analysis on emerging tech, AI, and
+        industry trends to inform strategic decisions, produce high-impact
+        thought leadership and compelling technical documentation.
+      </p>
+    </div>,
+    <div className="about-card">
+      <div className="about-icon">
+        <FontAwesomeIcon icon={faRocket} />
+      </div>
+      <h3>Innovation Advocate</h3>
+      <p>
+        Committed to leveraging cutting-edge technology to create meaningful
+        impact. Focus on future-ready solutions with long-term value.
+      </p>
+    </div>,
+    <div className="about-card">
+      <div className="about-icon">
+        <FontAwesomeIcon icon={faHandshake} />
+      </div>
+      <h3>Collaborative Partner</h3>
+      <p>
+        Believe in the power of teamwork. Excellent communicator who thrives in
+        agile environments and values open collaboration.
+      </p>
+    </div>,
+    <div className="about-card">
+      <div className="about-icon">
+        <FontAwesomeIcon icon={faLightbulb} />
+      </div>
+      <h3>Problem Solver</h3>
+      <p>
+        Passionate about solving complex technical challenges with elegant,
+        efficient solutions. Driven by curiosity and continuous learning.
+      </p>
+    </div>,
+    <div className="about-card">
+      <div className="about-icon">
+        <FontAwesomeIcon icon={faBook} />
+      </div>
+      <h3>Thought Writer</h3>
+      <p>
+        I leverage deep domain knowledge in Full-Stack and AI to produce
+        insightful articles, contents, industrial analysis and technical
+        documentation that translate complex technological advancement to
+        educate, inspire, drive understanding and shape dialogue around the
+        future of technology.
+      </p>
+    </div>,
+  ];
+  const skillsItems = [
+    <div className="skills-container">
+      <div className="skill-category">
+        <h3>
+          <FontAwesomeIcon icon={faPaintBrush} /> Frontend
+        </h3>
+        <div className="skill-tags">
+          <span className="skill-tag">
+            <FontAwesomeIcon icon={faReact} /> React
+          </span>
+          <span className="skill-tag">
+            <FontAwesomeIcon icon={faVuejs} /> Vue.js
+          </span>
+          <span className="skill-tag">
+            <FontAwesomeIcon icon={faCode} /> TypeScript
+          </span>
+          <span className="skill-tag">
+            <FontAwesomeIcon icon={faPalette} /> Tailwind CSS
+          </span>
+          <span className="skill-tag">
+            <FontAwesomeIcon icon={faHtml5} /> HTML/CSS
+          </span>
+          <span className="skill-tag">
+            <FontAwesomeIcon icon={faJsSquare} /> JavaScript
+          </span>
+        </div>
+      </div>
+    </div>,
+    <div className="skills-container">
+      <div className="skill-category">
+        <h3>
+          <FontAwesomeIcon icon={faServer} /> Backend
+        </h3>
+        <div className="skill-tags">
+          <span className="skill-tag">
+            <FontAwesomeIcon icon={faNodeJs} /> Node.js
+          </span>
+          <span className="skill-tag">
+            <FontAwesomeIcon icon={faPython} /> Python
+          </span>
+          <span className="skill-tag">
+            <FontAwesomeIcon icon={faCube} /> Express.js
+          </span>
+          <span className="skill-tag">
+            <FontAwesomeIcon icon={faDatabase} /> PostgreSQL
+          </span>
+          <span className="skill-tag">
+            <FontAwesomeIcon icon={faLeaf} /> MongoDB
+          </span>
+          <span className="skill-tag">
+            <FontAwesomeIcon icon={faPlug} /> REST API
+          </span>
+        </div>
+      </div>
+    </div>,
+    <div className="skills-container">
+      <div className="skill-category">
+        <h3>
+          <FontAwesomeIcon icon={faTools} /> Tools & DevOps
+        </h3>
+        <div className="skill-tags">
+          <span className="skill-tag">
+            <FontAwesomeIcon icon={faGitAlt} /> Git
+          </span>
+          <span className="skill-tag">
+            <FontAwesomeIcon icon={faDocker} /> Docker
+          </span>
+          <span className="skill-tag">
+            <FontAwesomeIcon icon={faAws} /> AWS
+          </span>
+          <span className="skill-tag">
+            <FontAwesomeIcon icon={faInfinity} /> CI/CD
+          </span>
+          <span className="skill-tag">
+            <FontAwesomeIcon icon={faLinux} /> Linux
+          </span>
+          <span className="skill-tag">
+            <FontAwesomeIcon icon={faCube} /> Webpack
+          </span>
+        </div>
+      </div>
+    </div>,
+    <div className="skills-container">
+      <div className="skill-category">
+        <h3>
+          <FontAwesomeIcon icon={faPenFancy} /> Design & UX
+        </h3>
+        <div className="skill-tags">
+          <span className="skill-tag">
+            <FontAwesomeIcon icon={faPenNib} /> Figma
+          </span>
+          <span className="skill-tag">
+            <FontAwesomeIcon icon={faLaptop} /> UI Design
+          </span>
+          <span className="skill-tag">
+            <FontAwesomeIcon icon={faEdit} /> Wireframing
+          </span>
+          <span className="skill-tag">
+            <FontAwesomeIcon icon={faBezierCurve} /> Prototyping
+          </span>
+          <span className="skill-tag">
+            <FontAwesomeIcon icon={faUsers} /> User Research
+          </span>
+          <span className="skill-tag">
+            <FontAwesomeIcon icon={faUniversalAccess} /> Accessibility
+          </span>
+        </div>
+      </div>
+    </div>,
+  ];
+
   return (
     <div className="protagonist">
       {/* Scroll Progress Bar */}
@@ -826,76 +1005,7 @@ export default function App() {
         <section id="about" className="about-section">
           <div className="container1">
             <h2 className="section-title">About Me</h2>
-            <div className="about-grid">
-              <div className="about-card">
-                <div className="about-icon">
-                  <FontAwesomeIcon icon={faCode} />
-                </div>
-                <h3>Full-Stack Developer</h3>
-                <p>
-                  Expert in modern web technologies including React, Vue,
-                  Node.js, and cloud infrastructure. Building scalable
-                  applications from concept to deployment.
-                </p>
-              </div>
-              <div className="about-card">
-                <div className="about-icon">
-                  <FontAwesomeIcon icon={faPenFancy} />
-                </div>
-                <h3>Research & Analysis</h3>
-                <p>
-                  I perform rigorous, evidence-based analysis on emerging tech,
-                  AI, and industry trends to inform strategic decisions, produce
-                  high-impact thought leadership and compelling technical
-                  documentation.
-                </p>
-              </div>
-              <div className="about-card">
-                <div className="about-icon">
-                  <FontAwesomeIcon icon={faRocket} />
-                </div>
-                <h3>Innovation Advocate</h3>
-                <p>
-                  Committed to leveraging cutting-edge technology to create
-                  meaningful impact. Focus on future-ready solutions with
-                  long-term value.
-                </p>
-              </div>
-              <div className="about-card">
-                <div className="about-icon">
-                  <FontAwesomeIcon icon={faHandshake} />
-                </div>
-                <h3>Collaborative Partner</h3>
-                <p>
-                  Believe in the power of teamwork. Excellent communicator who
-                  thrives in agile environments and values open collaboration.
-                </p>
-              </div>
-              <div className="about-card">
-                <div className="about-icon">
-                  <FontAwesomeIcon icon={faLightbulb} />
-                </div>
-                <h3>Problem Solver</h3>
-                <p>
-                  Passionate about solving complex technical challenges with
-                  elegant, efficient solutions. Driven by curiosity and
-                  continuous learning.
-                </p>
-              </div>
-              <div className="about-card">
-                <div className="about-icon">
-                  <FontAwesomeIcon icon={faBook} />
-                </div>
-                <h3>Thought Writer</h3>
-                <p>
-                  I leverage deep domain knowledge in Full-Stack and AI to
-                  produce insightful articles, contents, industrial analysis and
-                  technical documentation that translate complex technological
-                  advancement to educate, inspire, drive understanding and shape
-                  dialogue around the future of technology.
-                </p>
-              </div>
-            </div>
+            <Carousel items={aboutItems} slideCount={aboutItems.length} />
           </div>
         </section>
 
@@ -982,112 +1092,8 @@ export default function App() {
         {/* Skills */}
         <section id="skills" className="skills-section">
           <div className="container1">
-            <h2 className="section-title">Technical Skills</h2>
-            <div className="skills-container">
-              <div className="skill-category">
-                <h3>
-                  <FontAwesomeIcon icon={faPaintBrush} /> Frontend
-                </h3>
-                <div className="skill-tags">
-                  <span className="skill-tag">
-                    <FontAwesomeIcon icon={faReact} /> React
-                  </span>
-                  <span className="skill-tag">
-                    <FontAwesomeIcon icon={faVuejs} /> Vue.js
-                  </span>
-                  <span className="skill-tag">
-                    <FontAwesomeIcon icon={faCode} /> TypeScript
-                  </span>
-                  <span className="skill-tag">
-                    <FontAwesomeIcon icon={faPalette} /> Tailwind CSS
-                  </span>
-                  <span className="skill-tag">
-                    <FontAwesomeIcon icon={faHtml5} /> HTML/CSS
-                  </span>
-                  <span className="skill-tag">
-                    <FontAwesomeIcon icon={faJsSquare} /> JavaScript
-                  </span>
-                </div>
-              </div>
-
-              <div className="skill-category">
-                <h3>
-                  <FontAwesomeIcon icon={faServer} /> Backend
-                </h3>
-                <div className="skill-tags">
-                  <span className="skill-tag">
-                    <FontAwesomeIcon icon={faNodeJs} /> Node.js
-                  </span>
-                  <span className="skill-tag">
-                    <FontAwesomeIcon icon={faPython} /> Python
-                  </span>
-                  <span className="skill-tag">
-                    <FontAwesomeIcon icon={faCube} /> Express.js
-                  </span>
-                  <span className="skill-tag">
-                    <FontAwesomeIcon icon={faDatabase} /> PostgreSQL
-                  </span>
-                  <span className="skill-tag">
-                    <FontAwesomeIcon icon={faLeaf} /> MongoDB
-                  </span>
-                  <span className="skill-tag">
-                    <FontAwesomeIcon icon={faPlug} /> REST API
-                  </span>
-                </div>
-              </div>
-
-              <div className="skill-category">
-                <h3>
-                  <FontAwesomeIcon icon={faTools} /> Tools & DevOps
-                </h3>
-                <div className="skill-tags">
-                  <span className="skill-tag">
-                    <FontAwesomeIcon icon={faGitAlt} /> Git
-                  </span>
-                  <span className="skill-tag">
-                    <FontAwesomeIcon icon={faDocker} /> Docker
-                  </span>
-                  <span className="skill-tag">
-                    <FontAwesomeIcon icon={faAws} /> AWS
-                  </span>
-                  <span className="skill-tag">
-                    <FontAwesomeIcon icon={faInfinity} /> CI/CD
-                  </span>
-                  <span className="skill-tag">
-                    <FontAwesomeIcon icon={faLinux} /> Linux
-                  </span>
-                  <span className="skill-tag">
-                    <FontAwesomeIcon icon={faCube} /> Webpack
-                  </span>
-                </div>
-              </div>
-
-              <div className="skill-category">
-                <h3>
-                  <FontAwesomeIcon icon={faPenFancy} /> Design & UX
-                </h3>
-                <div className="skill-tags">
-                  <span className="skill-tag">
-                    <FontAwesomeIcon icon={faPenNib} /> Figma
-                  </span>
-                  <span className="skill-tag">
-                    <FontAwesomeIcon icon={faLaptop} /> UI Design
-                  </span>
-                  <span className="skill-tag">
-                    <FontAwesomeIcon icon={faEdit} /> Wireframing
-                  </span>
-                  <span className="skill-tag">
-                    <FontAwesomeIcon icon={faBezierCurve} /> Prototyping
-                  </span>
-                  <span className="skill-tag">
-                    <FontAwesomeIcon icon={faUsers} /> User Research
-                  </span>
-                  <span className="skill-tag">
-                    <FontAwesomeIcon icon={faUniversalAccess} /> Accessibility
-                  </span>
-                </div>
-              </div>
-            </div>
+            <h2 className="section-title">Skills</h2>
+            <Carousel items={skillsItems} slideCount={skillsItems.length} />
           </div>
         </section>
 
