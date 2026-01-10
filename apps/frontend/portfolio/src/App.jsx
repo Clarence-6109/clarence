@@ -623,7 +623,7 @@ export default function App() {
         <div className="portfolio-overlay">
           <div className="dual-buttons">
             <a
-              href="https://tic-tac-toe-tau-bay.vercel.app/"
+              href="https://groove-music-alpha.vercel.app/"
               className="portfolio-btn"
             >
               <FontAwesomeIcon icon={faUpRightFromSquare} /> Live Demo
