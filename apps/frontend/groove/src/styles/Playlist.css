@@ -1,0 +1,132 @@
+.playlist-hero {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  background: linear-gradient(
+    180deg,
+    rgba(124, 58, 237, 0.3) 0%,
+    transparent 100%
+  );
+  margin: -24px -32px 32px;
+  padding: 48px 32px 32px;
+}
+
+.playlist-cover {
+  width: 240px;
+  height: 240px;
+  border-radius: var(--border-radius);
+  object-fit: cover;
+  box-shadow: var(--shadow-lg);
+}
+
+.playlist-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.playlist-type {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.playlist-title {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.playlist-description {
+  color: var(--text-secondary);
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+
+.playlist-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.playlist-meta strong {
+  color: var(--text-primary);
+}
+
+.playlist-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.play-all-btn {
+  width: 56px;
+  height: 56px;
+  background: var(--primary-500);
+  border: none;
+  border-radius: 50%;
+  color: var(--text-primary);
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-glow);
+}
+
+.play-all-btn:hover {
+  transform: scale(1.08);
+  background: var(--primary-400);
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 28px;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  display: flex;
+  align-items: center;
+}
+
+.action-btn:hover {
+  color: var(--text-primary);
+}
+
+.action-btn.liked {
+  color: var(--accent-500);
+}
+
+@media (max-width: 768px) {
+  .playlist-hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .playlist-cover {
+    width: 200px;
+    height: 200px;
+  }
+
+  .playlist-title {
+    font-size: 32px;
+  }
+
+  .playlist-meta {
+    justify-content: center;
+  }
+
+  .playlist-actions {
+    justify-content: center;
+  }
+}

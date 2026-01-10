@@ -613,6 +613,44 @@ export default function App() {
         featuring a clean interface and intuitive task management.
       </p>
     </div>,
+    <div className="portfolio-card">
+      <div className="portfolio-image">
+        <img
+          src="/groove_music.avif"
+          alt="Groove Music"
+          className="portfolio-img"
+        />
+        <div className="portfolio-overlay">
+          <div className="dual-buttons">
+            <a
+              href="https://tic-tac-toe-tau-bay.vercel.app/"
+              className="portfolio-btn"
+            >
+              <FontAwesomeIcon icon={faUpRightFromSquare} /> Live Demo
+            </a>
+            <a href="#" className="portfolio-btn secondary">
+              <FontAwesomeIcon icon={faGithub} /> Source Code
+            </a>
+          </div>
+        </div>
+      </div>
+      <h3>Groove Music</h3>
+      <p className="portfolio-category">Music Streaming and Design</p>
+      <div className="tech-tags">
+        <span>
+          <FontAwesomeIcon icon={faReact} />
+          React
+        </span>
+        <span>
+          <FontAwesomeIcon icon={faCss3} />
+          CSS3
+        </span>
+      </div>
+      <p className="portfolio-description">
+        A music streaming web application with search, playlists, and
+        recommendations.
+      </p>
+    </div>,
   ];
 
   // Testimonials items

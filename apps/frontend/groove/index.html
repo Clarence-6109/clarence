@@ -2,98 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spotify-Like Music App</title>
-    <link rel="stylesheet" href="styles.css" />
     <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    <title>Groove - Music Player</title>
   </head>
   <body>
-    <div class="app">
-      <nav class="sidebar">
-        <div class="logo">Musicify</div>
-        <ul class="nav-links">
-          <li><i class="fas fa-home"></i> Home</li>
-          <li><i class="fas fa-search"></i> Search</li>
-          <li><i class="fas fa-book"></i> Your Library</li>
-        </ul>
-        <div class="playlists">
-          <h4>Playlists</h4>
-          <ul id="playlist-list">
-            <!-- Dynamically added -->
-          </ul>
-          <button id="create-playlist">Create Playlist</button>
-        </div>
-      </nav>
-
-      <main class="main-content">
-        <header class="top-bar">
-          <input
-            type="text"
-            id="search"
-            placeholder="Search for artists, songs, or playlists"
-          />
-          <div class="user">User</div>
-        </header>
-
-        <section id="home" class="view active">
-          <h2>Featured Playlists</h2>
-          <div class="grid" id="featured-playlists"></div>
-
-          <h2>Recently Played</h2>
-          <div class="grid" id="recently-played"></div>
-        </section>
-
-        <section id="search-view" class="view">
-          <h2>Search Results</h2>
-          <div class="grid" id="search-results"></div>
-        </section>
-
-        <section id="library" class="view">
-          <h2>Your Library</h2>
-          <div class="grid" id="library-content"></div>
-        </section>
-
-        <section id="playlist-view" class="view">
-          <h2 id="playlist-title"></h2>
-          <div id="playlist-songs"></div>
-          <button id="add-song">Add Song</button>
-        </section>
-      </main>
-
-      <footer class="player">
-        <div class="now-playing">
-          <img id="album-art" src="placeholder.jpg" alt="Album Art" />
-          <div>
-            <span id="song-title">Song Title</span>
-            <span id="artist">Artist</span>
-          </div>
-        </div>
-        <div class="controls">
-          <button id="shuffle"><i class="fas fa-random"></i></button>
-          <button id="prev"><i class="fas fa-step-backward"></i></button>
-          <button id="play-pause"><i class="fas fa-play"></i></button>
-          <button id="next"><i class="fas fa-step-forward"></i></button>
-          <button id="repeat"><i class="fas fa-redo"></i></button>
-          <input type="range" id="progress" min="0" max="100" value="0" />
-        </div>
-        <div class="extra-controls">
-          <input
-            type="range"
-            id="volume"
-            min="0"
-            max="1"
-            step="0.01"
-            value="1"
-          />
-          <button id="queue"><i class="fas fa-list"></i></button>
-        </div>
-        <audio id="audio-player" preload="metadata"></audio>
-      </footer>
-    </div>
-
-    <script src="script.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
